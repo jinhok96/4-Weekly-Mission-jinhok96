@@ -9,7 +9,7 @@ import SelectMenu from '@/components/common/SelectMenu';
 import KebabButton from '@/components/common/buttons/KebabButton';
 import StarButton from '@/components/common/buttons/StarButton';
 import styles from '@/components/layouts/main/card/Card.module.css';
-import NoImage from '@/public/images/card-no-image.svg';
+import NoImageSVG from '@/public/images/card-no-image.svg';
 
 const cardClasses = classNames(styles.card, 'position-relative');
 const hiddenSelectMenuClasses = classNames('display-none');
@@ -42,7 +42,7 @@ function Card({ linkData }: CardProps) {
   const createdDate = formatDate(createdAt);
 
   const backgroundImage = {
-    background: `#d9d9d9 url(${imageSource || NoImage}) no-repeat center / cover`,
+    background: `#d9d9d9 url(${imageSource || NoImageSVG}) no-repeat center / cover`,
   };
 
   const handleCardClick = () => {

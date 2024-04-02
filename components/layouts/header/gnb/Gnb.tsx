@@ -10,7 +10,7 @@ import { USER_API_URL, UserIdApiResponse } from '@/apis/api';
 import ErrorMessage from '@/components/common/ErrorMessage';
 import LoginButton from '@/components/common/buttons/LoginButton';
 import styles from '@/components/layouts/header/gnb/Gnb.module.css';
-import logo from '@/public/images/logo.svg';
+import LogoSVG from '@/public/images/logo.svg';
 import DefaultProfileImg from '@/public/images/profile-img.png';
 
 const FOLDER_LOCATION = '/folder';
@@ -46,7 +46,7 @@ function Gnb() {
       <nav className={navClasses}>
         <div className={containerClasses}>
           <Link href="/" onClick={scrollToTop}>
-            <Image className={logoClasses} src={logo} alt="logo" />
+            <LogoSVG className={logoClasses} />
           </Link>
           {loading && <ErrorMessage message={LOADING_MESSAGE} />}
           {userInfo ? (

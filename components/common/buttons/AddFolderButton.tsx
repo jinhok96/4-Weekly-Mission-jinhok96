@@ -1,9 +1,8 @@
 import classNames from 'classnames';
-import Image from 'next/image';
 
 import styles from '@/components/common/buttons/AddFolderButton.module.css';
 import Button from '@/components/common/buttons/Button';
-import AddIcon from '@/public/images/add-primary.svg';
+import AddIconSVG from '@/public/images/add-primary.svg';
 
 const iconClasses = classNames(styles['add-folder-icon']);
 
@@ -24,7 +23,7 @@ function AddFolderButton({ className = '', onClick }: AddFolderButtonProps) {
 
   const button = (
     <Button className={buttonClasses} text="폴더 추가" onClick={onClick}>
-      <Image className={iconClasses} src={AddIcon} alt="AddIcon" />
+      <AddIconSVG className={iconClasses} />
     </Button>
   );
 

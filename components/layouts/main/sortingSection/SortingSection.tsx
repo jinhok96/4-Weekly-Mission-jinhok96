@@ -11,9 +11,9 @@ import OptionButton from '@/components/common/buttons/OptionButton';
 import SortingButton from '@/components/common/buttons/SortingButton';
 import styles from '@/components/layouts/main/sortingSection/SortingSection.module.css';
 import { modalList } from '@/contexts/Modal';
-import DeleteIcon from '@/public/images/delete.svg';
-import PenIcon from '@/public/images/pen.svg';
-import ShareIcon from '@/public/images/share.svg';
+import DeleteSVG from '@/public/images/delete.svg';
+import PenSVG from '@/public/images/pen.svg';
+import ShareSVG from '@/public/images/share.svg';
 
 const sortingSectionClasses = classNames(
   styles['sorting-section'],
@@ -61,9 +61,9 @@ function SortingSection({ selectedFolder, setSelectedFolder }: SortingSectionPro
   };
 
   const optionList: OptionListType[] = [
-    { name: '공유', image: ShareIcon, key: 'share' },
-    { name: '이름 변경', image: PenIcon, key: 'editFolderName' },
-    { name: '삭제', image: DeleteIcon, key: 'deleteFolder' },
+    { name: '공유', image: ShareSVG, key: 'share' },
+    { name: '이름 변경', image: PenSVG, key: 'editFolderName' },
+    { name: '삭제', image: DeleteSVG, key: 'deleteFolder' },
   ];
 
   const handleSortingButtonClick = (key: number) => {

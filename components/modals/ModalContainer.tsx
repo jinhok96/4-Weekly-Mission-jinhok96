@@ -1,11 +1,10 @@
 import classNames from 'classnames';
-import Image from 'next/image';
 import React from 'react';
 import ReactModal from 'react-modal';
 
 import Button from '@/components/common/buttons/Button';
 import styles from '@/components/modals/ModalContainer.module.css';
-import CloseIcon from '@/public/images/close.svg';
+import CloseSVG from '@/public/images/close.svg';
 
 // ReactModal 주요 Props
 //
@@ -84,7 +83,7 @@ function ModalContainer({ children, onClose }: ModalContainerProps) {
       parentSelector={() => document.querySelector('#modal-root') || document.body}
     >
       <Button className={closeIconClasses} onClick={handleCloseButtonClick}>
-        <Image src={CloseIcon} alt="close-icon" />
+        <CloseSVG />
       </Button>
       {children}
     </ReactModal>

@@ -1,11 +1,10 @@
 import classNames from 'classnames';
-import Image from 'next/image';
 import React, { useContext } from 'react';
 
 import styles from '@/components/layouts/main/searchBar/SearchBar.module.css';
 import { InputStateContext } from '@/contexts/InputStateProvider';
-import resetIcon from '@/public/images/close-icon-dark.svg';
-import searchIcon from '@/public/images/search-icon.svg';
+import ResetSVG from '@/public/images/close-icon-dark.svg';
+import SearchIconSVG from '@/public/images/search-icon.svg';
 
 const containerClasses = classNames(styles['search-bar'], 'position-relative', 'width-full');
 const inputClasses = classNames(styles['search-bar-input'], 'background-light', 'text-color-text', 'width-full');
@@ -33,10 +32,11 @@ function SearchBar() {
         onChange={handleInputChange}
         placeholder="링크를 검색해 보세요."
       />
-      <Image className={searchIconClasses} src={searchIcon} alt="searchIcon" />
+      <SearchIconSVG className={searchIconClasses} />
       {inputState !== '' && (
+        // eslint-disable-next-line jsx-a11y/control-has-associated-label
         <button className={inputResetButtonClasses} type="button" onClick={handleInputResetClick}>
-          <Image className={resetIconClasses} src={resetIcon} alt="resetIcon" />
+          <ResetSVG className={resetIconClasses} />
         </button>
       )}
     </div>
