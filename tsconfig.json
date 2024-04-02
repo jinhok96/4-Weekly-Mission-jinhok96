@@ -21,7 +21,7 @@
       "@/fonts/*": ["fonts/*"],
       "@/utils/*": ["utils/*"],
       "@/hooks/*": ["hooks/*"],
-      "@/context/*": ["context/*"],
+      "@/context/*": ["contexts/*"],
       "@/types/*": ["types/*"],
       "@/pages/*": ["pages/*"],
       "@/public/*": ["public/*"]

@@ -1,11 +1,11 @@
-import classNames from "classnames";
-import Link from "next/link";
+import classNames from 'classnames';
+import Link from 'next/link';
 
-import styles from "@/styles/Home.module.css";
+import styles from '@/pages/index.module.css';
 
-const containerClasses = classNames(styles.container, "flex-col", "align-center", "position-absolute");
-const linkSharedPageButtonClasses = classNames(styles.button, "background-red", "text-color-white", "border-none");
-const linkFolderPageButtonClasses = classNames(styles.button, "background-primary", "text-color-white", "border-none");
+const containerClasses = classNames(styles.container, 'flex-col', 'align-center', 'position-absolute');
+const linkSharedPageButtonClasses = classNames(styles.button, 'background-red', 'text-color-white', 'border-none');
+const linkFolderPageButtonClasses = classNames(styles.button, 'background-primary', 'text-color-white', 'border-none');
 
 export default function Home() {
   return (
