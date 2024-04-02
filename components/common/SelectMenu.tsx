@@ -3,12 +3,10 @@ import React from 'react';
 
 import useModal from 'hooks/useModal';
 
-import Button from 'components/Common/Button';
-import styles from 'components/Common/SelectMenu.module.css';
-
-import { modalList } from 'context/Modal';
-
-import { LinkData } from 'services/api';
+import { LinkData } from '@/apis/api';
+import styles from '@/components/common/SelectMenu.module.css';
+import Button from '@/components/common/buttons/Button';
+import { modalList } from '@/contexts/Modal';
 
 const menuElementClasses = classNames(styles['menu-element'], 'text-center', 'border-none', 'width-full');
 

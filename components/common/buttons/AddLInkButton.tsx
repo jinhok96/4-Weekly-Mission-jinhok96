@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 
-import styles from 'components/Common/AddLInkButton.module.css';
-import Button from 'components/Common/Button';
+import styles from '@/components/common/buttons/AddLInkButton.module.css';
+import Button from '@/components/common/buttons/Button';
 
 interface AddLinkButtonProps {
   className?: string;

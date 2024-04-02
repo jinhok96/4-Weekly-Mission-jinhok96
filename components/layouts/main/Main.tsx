@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-import styles from 'components/Main/Main.module.css';
+import styles from '@/components/layouts/main/Main.module.css';
 
 const mainClasses = classNames(styles.main, 'width-full');
 const mainContainerClasses = classNames(styles['main-container'], 'margin-auto');

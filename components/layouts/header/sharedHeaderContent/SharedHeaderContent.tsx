@@ -1,11 +1,11 @@
 import classNames from 'classnames';
+import Image from 'next/image';
 
 import useFetch from 'hooks/useFetch';
 
-import ErrorMessage from 'components/Common/ErrorMessage';
-import styles from 'components/Header/SharedHeaderContent.module.css';
-
-import { SampleFolderApiResponse, SAMPLE_FOLDER_API_URL } from 'services/api';
+import { SampleFolderApiResponse, SAMPLE_FOLDER_API_URL } from '@/apis/api';
+import ErrorMessage from '@/components/common/ErrorMessage';
+import styles from '@/components/layouts/header/sharedHeaderContent/SharedHeaderContent.module.css';
 
 const contentClasses = classNames(styles['header-content']);
 const contentContainerClasses = classNames('flex-col', 'align-center');
@@ -32,7 +32,7 @@ function SharedHeaderContent() {
         {data && (
           <div className={contentContainerClasses}>
             <div className={userClasses}>
-              <img className={userAvatarClasses} src={ownerProfileImg} alt="ownerProfileImg" />
+              <Image className={userAvatarClasses} src={ownerProfileImg} alt="ownerProfileImg" />
               <p className={userNameClasses}>{ownerName}</p>
             </div>
             <p className={folderNameClasses}>{folderName}</p>

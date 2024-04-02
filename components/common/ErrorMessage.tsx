@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import styles from 'components/Common/ErrorMessage.module.css';
+import styles from '@/components/common/ErrorMessage.module.css';
 
 const messageClasses = classNames(styles['error-message'], 'text-center');
 

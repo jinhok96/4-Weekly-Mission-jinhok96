@@ -91,8 +91,8 @@
           ["@/fonts", ".fonts"],
           ["@/utils", "./utils"],
           ["@/hooks", "./hooks"],
-          ["@/context", "./context"],
-          ["@/types", "./types"],
+          ["@/contexts", "./contexts"],
+          ["@/apis", "./apis"],
           ["@/pages", "./pages"],
           ["@/public", "./public"]
         ],

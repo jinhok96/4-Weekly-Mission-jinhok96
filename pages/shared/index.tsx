@@ -1,12 +1,13 @@
 import classNames from 'classnames';
-import Footer from 'components/Footer/Footer';
-import Header from 'components/Header/Header';
-import SharedHeaderContent from 'components/Header/SharedHeaderContent';
-import CardList from 'components/Main/CardList';
-import Main from 'components/Main/Main';
-import SearchBar from 'components/Main/SearchBar';
 
-// import styles from 'pages/SharedPage/SharedPage.module.css';
+import Footer from '@/components/layouts/footer/Footer';
+import Header from '@/components/layouts/header/Header';
+import SharedHeaderContent from '@/components/layouts/header/sharedHeaderContent/SharedHeaderContent';
+import Main from '@/components/layouts/main/Main';
+import CardList from '@/components/layouts/main/card/CardList';
+import SearchBar from '@/components/layouts/main/searchBar/SearchBar';
+
+// import styles from '@/pages/SharedPage/SharedPage.module.css';
 
 const containerClasses = classNames('min-height-100vh');
 

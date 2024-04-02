@@ -1,8 +1,9 @@
 import classNames from 'classnames';
 import React from 'react';
 
-import Gnb from 'components/Header/Gnb';
-// import styles from 'components/Header/Header.module.css';
+import Gnb from '@/components/layouts/header/gnb/Gnb';
+
+// import styles from '@/components/layouts/header/Header.module.css';
 
 const headerClasses = classNames('background-bg', 'width-full');
 

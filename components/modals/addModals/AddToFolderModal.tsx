@@ -1,16 +1,15 @@
 import classNames from 'classnames';
+import Image from 'next/image';
 import { useState } from 'react';
-
-import CheckIcon from 'assets/images/check.svg';
 
 import useFetch from 'hooks/useFetch';
 
-import AddFolderList from 'components/Common/AddFolderList';
-import ModalButton from 'components/Common/ModalButton';
-import styles from 'components/Modal/AddToFolderModal.module.css';
-import ModalContainer from 'components/Modal/ModalContainer';
-
-import { FOLDERS_API_URL, FolderApiResponse, FolderData } from 'services/api';
+import { FOLDERS_API_URL, FolderApiResponse, FolderData } from '@/apis/api';
+import AddFolderList from '@/components/common/AddFolderList';
+import ModalButton from '@/components/common/buttons/ModalButton';
+import ModalContainer from '@/components/modals/ModalContainer';
+import styles from '@/components/modals/addModals/AddToFolderModal.module.css';
+import CheckIcon from '@/public/images/check.svg';
 
 const titleClasses = classNames(styles.title, 'text-color-gray100', 'text-center');
 const linkClasses = classNames(styles.link, 'text-color-gray60', 'text-center');
@@ -83,7 +82,7 @@ function AddToFolderModal({ link, onSubmit, onClose }: AddfolderModalProps) {
               <div className={linkCountClasses}>{folder?.link?.count ?? 0}개 링크</div>
             </div>
             <div className={selectedFolder?.id === folder.id ? selectedCheckIconClasses : CheckIconClasses}>
-              <img src={CheckIcon} alt="check-icon" />
+              <Image src={CheckIcon} alt="check-icon" />
             </div>
           </AddFolderList>
         ))}

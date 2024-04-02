@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-import styles from 'components/Common/Button.module.css';
+import styles from '@/components/common/buttons/Button.module.css';
 
 interface ButtonProps extends React.ComponentProps<'button'> {
   className?: string;

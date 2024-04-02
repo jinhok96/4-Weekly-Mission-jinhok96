@@ -1,10 +1,10 @@
 import classNames from 'classnames';
+import Image from 'next/image';
 import React from 'react';
 
-import KebabImg from 'assets/images/kebab.svg';
-
-import Button from 'components/Common/Button';
-import styles from 'components/Common/KebabButton.module.css';
+import Button from '@/components/common/buttons/Button';
+import styles from '@/components/common/buttons/KebabButton.module.css';
+import KebabImg from '@/public/images/kebab.svg';
 
 const buttonImageClasses = classNames('width-full');
 
@@ -18,7 +18,7 @@ function KebabButton({ className = '', onClick }: KebabButtonProps) {
 
   return (
     <Button className={buttonClasses} onClick={onClick}>
-      <img className={buttonImageClasses} src={KebabImg} alt="KebabIcon" />
+      <Image className={buttonImageClasses} src={KebabImg} alt="KebabIcon" />
     </Button>
   );
 }

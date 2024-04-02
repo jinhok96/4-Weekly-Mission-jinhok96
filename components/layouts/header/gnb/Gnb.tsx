@@ -1,18 +1,17 @@
 import classNames from 'classnames';
-import { Link, useLocation } from 'react-router-dom';
-
-import logo from 'assets/images/logo.svg';
-import DefaultProfileImg from 'assets/images/profile-img.png';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import useFetch from 'hooks/useFetch';
-
-import ErrorMessage from 'components/Common/ErrorMessage';
-import LoginButton from 'components/Common/LoginButton';
-import styles from 'components/Header/Gnb.module.css';
-
-import { USER_API_URL, UserIdApiResponse } from 'services/api';
-
 import scrollToTop from 'utils/scrollToTop';
+
+import { USER_API_URL, UserIdApiResponse } from '@/apis/api';
+import ErrorMessage from '@/components/common/ErrorMessage';
+import LoginButton from '@/components/common/buttons/LoginButton';
+import styles from '@/components/layouts/header/gnb/Gnb.module.css';
+import logo from '@/public/images/logo.svg';
+import DefaultProfileImg from '@/public/images/profile-img.png';
 
 const FOLDER_LOCATION = '/folder';
 const LOADING_MESSAGE = 'Loading...';
@@ -32,7 +31,7 @@ function Gnb() {
   const userInfo = data?.data[0] ?? null;
 
   // 페이지 경로 저장
-  const { pathname } = useLocation();
+  const { pathname } = useRouter();
 
   const userProfileImg = userInfo?.profileImageSource || DefaultProfileImg;
   const userEmail = userInfo?.email ?? '';
@@ -46,13 +45,13 @@ function Gnb() {
     <div>
       <nav className={navClasses}>
         <div className={containerClasses}>
-          <Link to="/" onClick={scrollToTop}>
-            <img className={logoClasses} src={logo} alt="logo" />
+          <Link href="/" onClick={scrollToTop}>
+            <Image className={logoClasses} src={logo} alt="logo" />
           </Link>
           {loading && <ErrorMessage message={LOADING_MESSAGE} />}
           {userInfo ? (
             <div className={profileClasses}>
-              <img className={profileImgClasses} src={userProfileImg} alt="profile-img" />
+              <Image className={profileImgClasses} src={userProfileImg} alt="profile-img" />
               <p className={profileEmailClasses}>{userEmail}</p>
             </div>
           ) : (

@@ -1,10 +1,9 @@
 import classNames from 'classnames';
 import React from 'react';
 
-import { ReactComponent as StarImg } from 'assets/images/star.svg';
-
-import Button from 'components/Common/Button';
-import styles from 'components/Common/KebabButton.module.css';
+import Button from '@/components/common/buttons/Button';
+import styles from '@/components/common/buttons/KebabButton.module.css';
+import { ReactComponent as StarImg } from '@/public/images/star.svg';
 
 const buttonImageClasses = classNames('width-full');
 

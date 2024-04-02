@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 
-import Button from 'components/Common/Button';
-import styles from 'components/Common/LoginButton.module.css';
+import Button from '@/components/common/buttons/Button';
+import styles from '@/components/common/buttons/LoginButton.module.css';
 
 const buttonClasses = classNames(styles['login-button'], 'background-gra-primary', 'text-color-light');
 

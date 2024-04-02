@@ -1,12 +1,12 @@
 import classNames from 'classnames';
-import { Link } from 'react-router-dom';
+import Image from 'next/image';
+import Link from 'next/link';
 
-import facebook from 'assets/images/akar-icons_facebook-fill.svg';
-import twitter from 'assets/images/akar-icons_twitter-fill.svg';
-import youtube from 'assets/images/akar-icons_youtube-fill.svg';
-import instagram from 'assets/images/ant-design_instagram-filled.svg';
-
-import styles from 'components/Footer/Footer.module.css';
+import styles from '@/components/layouts/footer/Footer.module.css';
+import facebook from '@/public/images/akar-icons_facebook-fill.svg';
+import twitter from '@/public/images/akar-icons_twitter-fill.svg';
+import youtube from '@/public/images/akar-icons_youtube-fill.svg';
+import instagram from '@/public/images/ant-design_instagram-filled.svg';
 
 const footerClasses = classNames(
   styles.footer,
@@ -38,8 +38,8 @@ function Footer() {
       </div>
       <div className={socialLinkClasses}>
         {socialLinks.map((link) => (
-          <Link to={link.href} key={link.id} target="_blank">
-            <img className={socialLinkImgClasses} src={link.src} alt={link.alt} />
+          <Link href={link.href} key={link.id} target="_blank">
+            <Image className={socialLinkImgClasses} src={link.src} alt={link.alt} />
           </Link>
         ))}
       </div>

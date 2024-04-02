@@ -1,6 +1,8 @@
 import classNames from 'classnames';
-import Button from 'components/Common/Button';
-import styles from 'components/Common/OptionButton.module.css';
+import Image from 'next/image';
+
+import Button from '@/components/common/buttons/Button';
+import styles from '@/components/common/buttons/OptionButton.module.css';
 
 const optionImageClasses = classNames(styles['option-image']);
 
@@ -24,10 +26,10 @@ function OptionButton({ imageUrl, text, className = '', onClick }: OptionButtonP
 
   return (
     <Button className={optionClasses} onClick={onClick}>
-      <img className={optionImageClasses} src={imageUrl} alt={text} />
+      <Image className={optionImageClasses} src={imageUrl} alt={text} />
       {text}
     </Button>
   );
 }
 
-export default Option;
+export default OptionButton;

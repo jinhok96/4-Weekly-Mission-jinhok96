@@ -6,12 +6,12 @@ import { ModalDispatchContext, ModalStateContext } from 'contexts/ModalContext';
 
 // 전체 모달 리스트
 const modalList = {
-  AddForderModal: loadable(() => import('components/Modal/AddFolderModal')),
-  AddToForderModal: loadable(() => import('components/Modal/AddToFolderModal')),
-  DeleteFolderModal: loadable(() => import('components/Modal/DeleteFolderModal')),
-  DeleteLinkModal: loadable(() => import('components/Modal/DeleteLinkModal')),
-  EditFolderNameModal: loadable(() => import('components/Modal/EditFolderNameModal')),
-  ShareModal: loadable(() => import('components/Modal/ShareModal')),
+  AddForderModal: loadable(() => import('@/components/modals/addModals/AddFolderModal')),
+  AddToForderModal: loadable(() => import('@/components/modals/addModals/AddToFolderModal')),
+  DeleteFolderModal: loadable(() => import('@/components/modals/deleteModals/DeleteFolderModal')),
+  DeleteLinkModal: loadable(() => import('@/components/modals/deleteModals/DeleteLinkModal')),
+  EditFolderNameModal: loadable(() => import('@/components/modals/editModals/EditFolderNameModal')),
+  ShareModal: loadable(() => import('@/components/modals/shareModals/ShareModal')),
 };
 
 // 다른 곳에서 불러올 모달 컴포넌트

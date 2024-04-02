@@ -1,10 +1,10 @@
 import classNames from 'classnames';
 import React, { useState } from 'react';
 
-import ModalButton from 'components/Common/ModalButton';
-import TextInput from 'components/Common/TextInput';
-import styles from 'components/Modal/AddFolderModal.module.css';
-import ModalContainer from 'components/Modal/ModalContainer';
+import TextInput from '@/components/common/TextInput';
+import ModalButton from '@/components/common/buttons/ModalButton';
+import ModalContainer from '@/components/modals/ModalContainer';
+import styles from '@/components/modals/addModals/AddFolderModal.module.css';
 
 const titleClasses = classNames(styles.title, 'text-color-gray100', 'text-center');
 const inputClasses = classNames(styles.input, 'width-full');

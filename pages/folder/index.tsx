@@ -1,14 +1,4 @@
 import classNames from 'classnames';
-import FloatingAddFolderButton from 'components/Common/FloatingAddFolderButton';
-import Footer from 'components/Footer/Footer';
-import AddLinkBar from 'components/Header/AddLinkBar';
-import FolderHeaderContent from 'components/Header/FolderHeaderContent';
-import Header from 'components/Header/Header';
-import CardList from 'components/Main/CardList';
-import Main from 'components/Main/Main';
-import SearchBar from 'components/Main/SearchBar';
-import SortingSection from 'components/Main/SortingSection';
-import styles from 'pages/FolderPage/FolderPage.module.css';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 
 import { InputStateContext } from 'contexts/InputStateProvider';
@@ -16,6 +6,17 @@ import { modalList } from 'contexts/Modal';
 import useIntersectionObserver from 'hooks/useIntersectionObserver';
 import useModal from 'hooks/useModal';
 import selectParticle from 'utils/selectPostposition';
+
+import FloatingAddFolderButton from '@/components/common/buttons/FloatingAddFolderButton';
+import Footer from '@/components/layouts/footer/Footer';
+import Header from '@/components/layouts/header/Header';
+import AddLinkBar from '@/components/layouts/header/addLinkBar/AddLinkBar';
+import FolderHeaderContent from '@/components/layouts/header/folderHeaderContent/FolderHeaderContent';
+import Main from '@/components/layouts/main/Main';
+import CardList from '@/components/layouts/main/card/CardList';
+import SearchBar from '@/components/layouts/main/searchBar/SearchBar';
+import SortingSection from '@/components/layouts/main/sortingSection/SortingSection';
+import styles from '@/pages/folder/index.module.css';
 
 const searchResultTitleClasses = classNames(styles['search-result-title'], 'text-color-gray60');
 const floatingAddFolderButtonClasses = classNames(

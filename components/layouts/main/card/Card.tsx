@@ -1,17 +1,15 @@
 import classNames from 'classnames';
 import React, { useState } from 'react';
 
-import NoImage from 'assets/images/card-no-image.svg';
-
-import KebabButton from 'components/Common/KebabButton';
-import SelectMenu from 'components/Common/SelectMenu';
-import StarButton from 'components/Common/StarButton';
-import styles from 'components/Main/Card.module.css';
-
-import { LinkData } from 'services/api';
-
 import formatDate from 'utils/formatDate';
 import timeAgo from 'utils/timeAgo';
+
+import { LinkData } from '@/apis/api';
+import SelectMenu from '@/components/common/SelectMenu';
+import KebabButton from '@/components/common/buttons/KebabButton';
+import StarButton from '@/components/common/buttons/StarButton';
+import styles from '@/components/layouts/main/card/Card.module.css';
+import NoImage from '@/public/images/card-no-image.svg';
 
 const cardClasses = classNames(styles.card, 'position-relative');
 const hiddenSelectMenuClasses = classNames('display-none');

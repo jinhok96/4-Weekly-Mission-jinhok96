@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 
-import ModalButton from 'components/Common/ModalButton';
-import styles from 'components/Modal/DeleteLinkModal.module.css';
-import ModalContainer from 'components/Modal/ModalContainer';
+import ModalButton from '@/components/common/buttons/ModalButton';
+import ModalContainer from '@/components/modals/ModalContainer';
+import styles from '@/components/modals/deleteModals/DeleteLinkModal.module.css';
 
 const titleClasses = classNames(styles.title, 'text-color-gray100', 'text-center');
 const linkClasses = classNames(styles.link, 'text-color-gray60', 'text-center');

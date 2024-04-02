@@ -1,14 +1,13 @@
 import classNames from 'classnames';
+import Image from 'next/image';
 
-import Facebook from 'assets/images/share-facebook.svg';
-import Kakao from 'assets/images/share-kakao.svg';
-import LinkCopy from 'assets/images/share-link-copy.svg';
-
-import Button from 'components/Common/Button';
-import ModalContainer from 'components/Modal/ModalContainer';
-import styles from 'components/Modal/ShareModal.module.css';
-
-import { FolderData } from 'services/api';
+import { FolderData } from '@/apis/api';
+import Button from '@/components/common/buttons/Button';
+import ModalContainer from '@/components/modals/ModalContainer';
+import styles from '@/components/modals/shareModals/ShareModal.module.css';
+import Facebook from '@/public/images/share-facebook.svg';
+import Kakao from '@/public/images/share-kakao.svg';
+import LinkCopy from '@/public/images/share-link-copy.svg';
 
 const titleClasses = classNames(styles.title, 'text-color-gray100', 'text-center');
 const folderTitleClasses = classNames(styles['folder-title'], 'text-color-gray60', 'text-center');
@@ -73,7 +72,7 @@ function ShareModal({ folder, onClose }: ShareModalProps) {
       <div className={shareButtonContainerClasses}>
         {shareList.map((share) => (
           <Button key={share.type} className={shareButtonClasses} onClick={handleShareButtonClick[share.type]}>
-            <img className={shareButtonImgClasses} src={share.src} alt={share.alt} />
+            <Image className={shareButtonImgClasses} src={share.src} alt={share.alt} />
             <p className={shareButtonLabelClasses}>{share.label} </p>
           </Button>
         ))}

@@ -34,6 +34,7 @@ function ModalProvider({ children }: ModalProviderProps) {
   // useMemo: {open, close} 객체 저장
   // 저장된 객체는 첫 렌더링될 때 생성, 이후 의존성 배열의 값이 변경될 때 리렌더링 후 재생성
   // 의존성 배열이 []으로 비어있으므로 첫 렌더링 이후 재생성되지 않음
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const dispatch = useMemo(() => ({ open, close }), []);
 
   return (

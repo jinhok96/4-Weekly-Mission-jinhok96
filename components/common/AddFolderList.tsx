@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-import styles from 'components/Common/AddFolderList.module.css';
+import styles from '@/components/common/AddFolderList.module.css';
 
 interface AddFolderListProps {
   className?: string;

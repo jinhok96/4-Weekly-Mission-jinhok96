@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 
-import Button from 'components/Common/Button';
-import styles from 'components/Common/ModalButton.module.css';
+import Button from '@/components/common/buttons/Button';
+import styles from '@/components/common/buttons/ModalButton.module.css';
 
 interface ModalButtonProps {
   className?: string;

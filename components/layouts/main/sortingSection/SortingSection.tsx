@@ -1,22 +1,19 @@
 import classNames from 'classnames';
 import React from 'react';
 
-import DeleteIcon from 'assets/images/delete.svg';
-import PenIcon from 'assets/images/pen.svg';
-import ShareIcon from 'assets/images/share.svg';
-
 import useFetch from 'hooks/useFetch';
 import useModal from 'hooks/useModal';
 
-import AddFolderButton from 'components/Common/AddFolderButton';
-import ErrorMessage from 'components/Common/ErrorMessage';
-import Option from 'components/Common/Option';
-import SortingButton from 'components/Common/SortingButton';
-import styles from 'components/Main/SortingSection.module.css';
-
-import { modalList } from 'context/Modal';
-
-import { FOLDERS_API_URL, LINKS_API_URL, FolderApiResponse, LinksApiResponse } from 'services/api';
+import { FOLDERS_API_URL, LINKS_API_URL, FolderApiResponse, LinksApiResponse } from '@/apis/api';
+import ErrorMessage from '@/components/common/ErrorMessage';
+import AddFolderButton from '@/components/common/buttons/AddFolderButton';
+import OptionButton from '@/components/common/buttons/OptionButton';
+import SortingButton from '@/components/common/buttons/SortingButton';
+import styles from '@/components/layouts/main/sortingSection/SortingSection.module.css';
+import { modalList } from '@/contexts/Modal';
+import DeleteIcon from '@/public/images/delete.svg';
+import PenIcon from '@/public/images/pen.svg';
+import ShareIcon from '@/public/images/share.svg';
 
 const sortingSectionClasses = classNames(
   styles['sorting-section'],
@@ -129,7 +126,7 @@ function SortingSection({ selectedFolder, setSelectedFolder }: SortingSectionPro
             {selectedFolder.id !== ALL.id && (
               <div className={optionListClasses}>
                 {optionList.map((option) => (
-                  <Option
+                  <OptionButton
                     key={option.key}
                     text={option.name}
                     imageUrl={option.image}

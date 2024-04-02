@@ -3,13 +3,11 @@ import { useContext } from 'react';
 
 import useFetch from 'hooks/useFetch';
 
-import ErrorMessage from 'components/Common/ErrorMessage';
-import Card from 'components/Main/Card';
-import styles from 'components/Main/CardList.module.css';
-
-import { InputStateContext } from 'context/InputStateProvider';
-
-import { LINKS_API_URL, LINKS_FOLDER_ID_API_URL, LinksApiResponse } from 'services/api';
+import { LINKS_API_URL, LINKS_FOLDER_ID_API_URL, LinksApiResponse } from '@/apis/api';
+import ErrorMessage from '@/components/common/ErrorMessage';
+import Card from '@/components/layouts/main/card/Card';
+import styles from '@/components/layouts/main/card/CardList.module.css';
+import { InputStateContext } from '@/contexts/InputStateProvider';
 
 const cardListClasses = classNames(styles['card-list'], styles.grid, 'grid', 'width-full');
 const noCardListTextBoxClasses = classNames(
