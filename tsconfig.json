@@ -18,11 +18,11 @@
     "paths": {
       "@/components/*": ["components/*"],
       "@/styles/*": ["styles/*"],
+      "@/fonts/*": ["fonts/*"],
       "@/utils/*": ["utils/*"],
       "@/hooks/*": ["hooks/*"],
       "@/context/*": ["context/*"],
       "@/types/*": ["types/*"],
-      "@/config/*": ["config/*"],
       "@/pages/*": ["pages/*"],
       "@/public/*": ["public/*"]
     },
