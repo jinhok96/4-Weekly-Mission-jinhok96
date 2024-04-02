@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 
 export default function useFetch<T>(apiUrl: string): { data: T | null; loading: boolean; error: unknown | null } {
-  const API_URL = process.env.REACT_APP_API_URL;
-
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   // data, error 초기값은 비어있음, loading 초기값은 로딩 중인 상태
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(true);
