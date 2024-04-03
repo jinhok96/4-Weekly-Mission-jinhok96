@@ -33,7 +33,7 @@ function SharedHeaderContent() {
           <div className={contentContainerClasses}>
             <div className={userClasses}>
               <div className={userAvatarClasses}>
-                <Image src={ownerProfileImg} alt="ownerProfileImg" fill />
+                <Image src={ownerProfileImg} alt="ownerProfileImg" fill sizes="100vw" />
               </div>
               <p className={userNameClasses}>{ownerName}</p>
             </div>

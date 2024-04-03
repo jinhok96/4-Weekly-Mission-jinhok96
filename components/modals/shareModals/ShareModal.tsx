@@ -73,7 +73,7 @@ function ShareModal({ folder, onClose }: ShareModalProps) {
         {shareList.map((share) => (
           <Button key={share.type} className={shareButtonClasses} onClick={handleShareButtonClick[share.type]}>
             <div className={shareButtonImgClasses}>
-              <Image src={share.src} alt={share.alt} fill />
+              <Image src={share.src} alt={share.alt} fill sizes="100vw" />
             </div>
             <p className={shareButtonLabelClasses}>{share.label} </p>
           </Button>

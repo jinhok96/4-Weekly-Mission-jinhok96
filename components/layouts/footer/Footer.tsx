@@ -40,7 +40,7 @@ function Footer() {
         {socialLinks.map((link) => (
           <Link href={link.href} key={link.id} target="_blank">
             <div className={socialLinkImgClasses}>
-              <Image src={link.src} alt={link.alt} fill />
+              <Image src={link.src} alt={link.alt} fill sizes="100vw" />
             </div>
           </Link>
         ))}

@@ -47,7 +47,7 @@ function Gnb() {
         <div className={containerClasses}>
           <Link href="/" onClick={scrollToTop}>
             <div className={logoClasses}>
-              <Image src={logoSvg} alt="logo" fill />
+              <Image src={logoSvg} alt="logo" fill sizes="100vw" />
             </div>
           </Link>
           {loading && <ErrorMessage message={LOADING_MESSAGE} />}
