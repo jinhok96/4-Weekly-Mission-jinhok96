@@ -6,7 +6,7 @@ import useModal from 'hooks/useModal';
 import AddLinkButton from '@/components/common/buttons/AddLInkButton';
 import styles from '@/components/layouts/header/addLinkBar/AddLinkBar.module.css';
 import { modalList } from '@/contexts/Modal';
-import AddLinkSVG from '@/public/images/link.svg';
+import AddLinkSvg from '@/public/images/link.svg';
 
 const addLinkClasses = classNames(styles['add-link-bar'], 'position-relative', 'width-full', 'margin-auto');
 const inputClasses = classNames(styles['add-link-bar-input'], 'background-white', 'text-color-gray60', 'width-full');
@@ -46,7 +46,7 @@ function AddLinkBar() {
         onChange={handleInputChange}
         placeholder="링크를 추가해 보세요"
       />
-      <AddLinkSVG className={inputImgClasses} />
+      <AddLinkSvg className={inputImgClasses} />
       <AddLinkButton className={addLinkButtonClasses} onClick={handleAddLinkButtonClick} />
     </div>
   );

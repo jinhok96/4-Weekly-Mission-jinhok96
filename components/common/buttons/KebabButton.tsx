@@ -3,7 +3,7 @@ import React from 'react';
 
 import Button from '@/components/common/buttons/Button';
 import styles from '@/components/common/buttons/KebabButton.module.css';
-import KebabSVG from '@/public/images/kebab.svg';
+import KebabSvg from '@/public/images/kebab.svg';
 
 const buttonImageClasses = classNames('width-full');
 
@@ -17,7 +17,7 @@ function KebabButton({ className = '', onClick }: KebabButtonProps) {
 
   return (
     <Button className={buttonClasses} onClick={onClick}>
-      <KebabSVG className={buttonImageClasses} />
+      <KebabSvg className={buttonImageClasses} />
     </Button>
   );
 }

@@ -10,8 +10,8 @@ import { USER_API_URL, UserIdApiResponse } from '@/apis/api';
 import ErrorMessage from '@/components/common/ErrorMessage';
 import LoginButton from '@/components/common/buttons/LoginButton';
 import styles from '@/components/layouts/header/gnb/Gnb.module.css';
-import LogoSVG from '@/public/images/logo.svg';
-import DefaultProfileImg from '@/public/images/profile-img.png';
+import LogoSvg from '@/public/images/logo.svg';
+import defaultProfileImg from '@/public/images/profile-img.png';
 
 const FOLDER_LOCATION = '/folder';
 const LOADING_MESSAGE = 'Loading...';
@@ -33,7 +33,7 @@ function Gnb() {
   // 페이지 경로 저장
   const { pathname } = useRouter();
 
-  const userProfileImg = userInfo?.profileImageSource || DefaultProfileImg;
+  const userProfileImg = userInfo?.profileImageSource || defaultProfileImg;
   const userEmail = userInfo?.email ?? '';
 
   // /folder에서는 position-fixed 제거
@@ -46,7 +46,7 @@ function Gnb() {
       <nav className={navClasses}>
         <div className={containerClasses}>
           <Link href="/" onClick={scrollToTop}>
-            <LogoSVG className={logoClasses} />
+            <LogoSvg className={logoClasses} />
           </Link>
           {loading && <ErrorMessage message={LOADING_MESSAGE} />}
           {userInfo ? (

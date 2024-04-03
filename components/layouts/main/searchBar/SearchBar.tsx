@@ -3,8 +3,8 @@ import React, { useContext } from 'react';
 
 import styles from '@/components/layouts/main/searchBar/SearchBar.module.css';
 import { InputStateContext } from '@/contexts/InputStateProvider';
-import ResetSVG from '@/public/images/close-icon-dark.svg';
-import SearchIconSVG from '@/public/images/search-icon.svg';
+import { ReactComponent as ResetSvg } from '@/public/images/close-icon-dark.svg';
+import SearchIconSvg from '@/public/images/search-icon.svg';
 
 const containerClasses = classNames(styles['search-bar'], 'position-relative', 'width-full');
 const inputClasses = classNames(styles['search-bar-input'], 'background-light', 'text-color-text', 'width-full');
@@ -32,11 +32,11 @@ function SearchBar() {
         onChange={handleInputChange}
         placeholder="링크를 검색해 보세요."
       />
-      <SearchIconSVG className={searchIconClasses} />
+      <SearchIconSvg className={searchIconClasses} />
       {inputState !== '' && (
         // eslint-disable-next-line jsx-a11y/control-has-associated-label
         <button className={inputResetButtonClasses} type="button" onClick={handleInputResetClick}>
-          <ResetSVG className={resetIconClasses} />
+          <ResetSvg className={resetIconClasses} />
         </button>
       )}
     </div>

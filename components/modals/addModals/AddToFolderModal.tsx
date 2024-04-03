@@ -8,7 +8,7 @@ import AddFolderList from '@/components/common/AddFolderList';
 import ModalButton from '@/components/common/buttons/ModalButton';
 import ModalContainer from '@/components/modals/ModalContainer';
 import styles from '@/components/modals/addModals/AddToFolderModal.module.css';
-import CheckSVG from '@/public/images/check.svg';
+import CheckSvg from '@/public/images/check.svg';
 
 const titleClasses = classNames(styles.title, 'text-color-gray100', 'text-center');
 const linkClasses = classNames(styles.link, 'text-color-gray60', 'text-center');
@@ -81,7 +81,7 @@ function AddToFolderModal({ link, onSubmit, onClose }: AddfolderModalProps) {
               <div className={linkCountClasses}>{folder?.link?.count ?? 0}개 링크</div>
             </div>
             <div className={selectedFolder?.id === folder.id ? selectedCheckIconClasses : CheckIconClasses}>
-              <CheckSVG />
+              <CheckSvg />
             </div>
           </AddFolderList>
         ))}

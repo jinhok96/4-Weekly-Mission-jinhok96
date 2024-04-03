@@ -2,7 +2,7 @@ import classNames from 'classnames';
 
 import Button from '@/components/common/buttons/Button';
 import styles from '@/components/common/buttons/FloatingAddFolderButton.module.css';
-import AddIconSVG from '@/public/images/add-gray10.svg';
+import AddIconSvg from '@/public/images/add-gray10.svg';
 
 const iconClasses = classNames(styles['floating-add-folder-icon']);
 
@@ -20,7 +20,7 @@ function FloatingAddFolderButton({ className = '', onClick }: FloatingAddFolderB
   );
   const button = (
     <Button className={buttonClasses} text="폴더 추가" onClick={onClick}>
-      <AddIconSVG className={iconClasses} />
+      <AddIconSvg className={iconClasses} />
     </Button>
   );
 
