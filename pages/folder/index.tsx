@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 
+import { ALL_DEFAULT_DATA } from 'constants/constants';
 import { InputStateContext } from 'contexts/InputStateProvider';
 import { modalList } from 'contexts/Modal';
 import useIntersectionObserver from 'hooks/useIntersectionObserver';
@@ -36,8 +37,7 @@ const bottomAddLinkBarClasses = classNames(
 );
 
 function Folder() {
-  const ALL = { id: 0, name: '전체' };
-  const [selectedFolder, setSelectedFolder] = useState(ALL);
+  const [selectedFolder, setSelectedFolder] = useState(ALL_DEFAULT_DATA);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [isFooterVisible, setIsFooterVisible] = useState(false);
   const [isSearchResultVisible, setIsSearchResultVisible] = useState(false);

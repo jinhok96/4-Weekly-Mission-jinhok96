@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { useContext } from 'react';
 
+import { LOADING_MESSAGE } from 'constants/constants';
 import useFetch from 'hooks/useFetch';
 
 import { LINKS_API_URL, LINKS_FOLDER_ID_API_URL, LinksApiResponse } from '@/apis/api';
@@ -22,10 +23,7 @@ interface CardListProps {
 }
 
 function CardList({ folderId = 0 }: CardListProps) {
-  const LOADING_MESSAGE = 'Loading...';
-  const ALL = { id: 0, name: '전체' };
-
-  const url = folderId === ALL.id ? LINKS_API_URL : LINKS_FOLDER_ID_API_URL(folderId);
+  const url = folderId === 0 ? LINKS_API_URL : LINKS_FOLDER_ID_API_URL(folderId);
   const { data, loading, error } = useFetch<LinksApiResponse>(url);
 
   const { inputState } = useContext(InputStateContext);

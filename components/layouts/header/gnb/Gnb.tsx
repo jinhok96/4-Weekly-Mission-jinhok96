@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
+import { FOLDER_LOCATION, LOADING_MESSAGE } from 'constants/constants';
 import useFetch from 'hooks/useFetch';
 import scrollToTop from 'utils/scrollToTop';
 
@@ -12,9 +13,6 @@ import LoginButton from '@/components/common/buttons/LoginButton';
 import styles from '@/components/layouts/header/gnb/Gnb.module.css';
 import logoSvg from '@/public/images/logo.svg';
 import defaultProfileImg from '@/public/images/profile-img.png';
-
-const FOLDER_LOCATION = '/folder';
-const LOADING_MESSAGE = 'Loading...';
 
 const containerClasses = classNames('flex-row', 'align-center', 'justify-space-between');
 const logoClasses = classNames(styles['gnb-logo'], 'position-relative');

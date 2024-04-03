@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { useState } from 'react';
 
+import { LOADING_MESSAGE } from 'constants/constants';
 import useFetch from 'hooks/useFetch';
 
 import { FOLDERS_API_URL, FolderApiResponse, FolderData } from '@/apis/api';
@@ -30,7 +31,6 @@ interface AddfolderModalProps {
 }
 
 function AddToFolderModal({ link, onSubmit, onClose }: AddfolderModalProps) {
-  const LOADING_MESSAGE = 'Loading...';
   const foldersUrl = FOLDERS_API_URL;
   const { data, loading, error } = useFetch<FolderApiResponse>(foldersUrl);
 

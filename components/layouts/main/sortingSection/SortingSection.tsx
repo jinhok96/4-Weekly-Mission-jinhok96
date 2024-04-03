@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
+import { ALL_DEFAULT_DATA, LOADING_MESSAGE } from 'constants/constants';
 import useFetch from 'hooks/useFetch';
 import useModal from 'hooks/useModal';
 
@@ -35,16 +36,13 @@ interface SortingSectionProps {
 }
 
 function SortingSection({ selectedFolder, setSelectedFolder }: SortingSectionProps) {
-  const LOADING_MESSAGE = 'Loading...';
-  const ALL = { id: 0, name: '전체' };
-
   const { openModal } = useModal();
 
   const url = FOLDERS_API_URL;
   const { data, loading, error } = useFetch<FolderApiResponse>(url);
 
   // {id, created_at, name, user_id, favorite, link: {count}}
-  const folderList = [ALL, ...(data?.data ?? [])];
+  const folderList = [ALL_DEFAULT_DATA, ...(data?.data ?? [])];
 
   // 총 링크 수 계산
   const allLinkUrl = LINKS_API_URL;
@@ -123,7 +121,7 @@ function SortingSection({ selectedFolder, setSelectedFolder }: SortingSectionPro
           </div>
           <div className={folderInfoSectionClasses}>
             <p className={titleClasses}>{selectedFolder.name}</p>
-            {selectedFolder.id !== ALL.id && (
+            {selectedFolder.id !== ALL_DEFAULT_DATA.id && (
               <div className={optionListClasses}>
                 {optionList.map((option) => (
                   <OptionButton

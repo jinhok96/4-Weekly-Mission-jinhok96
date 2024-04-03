@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import Image from 'next/image';
 
+import { LOADING_MESSAGE } from 'constants/constants';
 import useFetch from 'hooks/useFetch';
 
 import { SampleFolderApiResponse, SAMPLE_FOLDER_API_URL } from '@/apis/api';
@@ -16,8 +17,6 @@ const folderNameClasses = classNames(styles['shared-folder-name'], 'text-center'
 
 // 폴더 정보 출력
 function HeaderContent() {
-  const LOADING_MESSAGE = 'Loading...';
-
   // 폴더 정보 가져오기
   const url = SAMPLE_FOLDER_API_URL;
   const { data, loading, error } = useFetch<SampleFolderApiResponse>(url);
