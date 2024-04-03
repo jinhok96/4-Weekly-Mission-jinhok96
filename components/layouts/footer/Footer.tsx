@@ -19,7 +19,7 @@ const footerClasses = classNames(
 const copyrightClasses = classNames(styles.copyright);
 const officialLinkClasses = classNames(styles['official-link'], 'flex-row');
 const socialLinkClasses = classNames(styles['social-link'], 'flex-row');
-const socialLinkImgClasses = classNames(styles['social-link-icon']);
+const socialLinkImgClasses = classNames(styles['social-link-icon'], 'position-relative');
 
 function Footer() {
   const socialLinks = [
@@ -39,7 +39,9 @@ function Footer() {
       <div className={socialLinkClasses}>
         {socialLinks.map((link) => (
           <Link href={link.href} key={link.id} target="_blank">
-            <Image className={socialLinkImgClasses} src={link.src} alt={link.alt} />
+            <div className={socialLinkImgClasses}>
+              <Image src={link.src} alt={link.alt} fill />
+            </div>
           </Link>
         ))}
       </div>

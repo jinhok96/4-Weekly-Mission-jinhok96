@@ -19,7 +19,7 @@ const LOADING_MESSAGE = 'Loading...';
 const containerClasses = classNames('flex-row', 'align-center', 'justify-space-between');
 const logoClasses = classNames(styles['gnb-logo']);
 const profileClasses = classNames(styles['gnb-profile'], 'flex-row', 'align-center');
-const profileImgClasses = classNames(styles['profile-img']);
+const profileImgClasses = classNames(styles['profile-img'], 'position-relative');
 const profileEmailClasses = classNames(styles['profile-email'], 'hidden-block-mobile-only', 'text-color-gray100');
 
 // 글로벌 네비게이션 바
@@ -51,7 +51,9 @@ function Gnb() {
           {loading && <ErrorMessage message={LOADING_MESSAGE} />}
           {userInfo ? (
             <div className={profileClasses}>
-              <Image className={profileImgClasses} src={userProfileImg} alt="profile-img" />
+              <div className={profileImgClasses}>
+                <Image src={userProfileImg} alt="profile-img" fill />
+              </div>
               <p className={profileEmailClasses}>{userEmail}</p>
             </div>
           ) : (

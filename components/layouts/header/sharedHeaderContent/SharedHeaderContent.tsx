@@ -32,7 +32,9 @@ function SharedHeaderContent() {
         {data && (
           <div className={contentContainerClasses}>
             <div className={userClasses}>
-              <Image className={userAvatarClasses} src={ownerProfileImg} alt="ownerProfileImg" />
+              <div className={userAvatarClasses}>
+                <Image src={ownerProfileImg} alt="ownerProfileImg" fill />
+              </div>
               <p className={userNameClasses}>{ownerName}</p>
             </div>
             <p className={folderNameClasses}>{folderName}</p>

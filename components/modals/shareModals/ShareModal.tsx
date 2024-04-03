@@ -13,7 +13,7 @@ const titleClasses = classNames(styles.title, 'text-color-gray100', 'text-center
 const folderTitleClasses = classNames(styles['folder-title'], 'text-color-gray60', 'text-center');
 const shareButtonContainerClasses = classNames(styles['share-button-container'], 'flex-row', 'justify-center');
 const shareButtonClasses = classNames('border-none', 'background-none');
-const shareButtonImgClasses = classNames(styles['share-button-img']);
+const shareButtonImgClasses = classNames(styles['share-button-img'], 'position-relative');
 const shareButtonLabelClasses = classNames(styles['share-button-label'], 'font-color-gray100');
 
 interface ShareModalProps {
@@ -72,7 +72,9 @@ function ShareModal({ folder, onClose }: ShareModalProps) {
       <div className={shareButtonContainerClasses}>
         {shareList.map((share) => (
           <Button key={share.type} className={shareButtonClasses} onClick={handleShareButtonClick[share.type]}>
-            <Image className={shareButtonImgClasses} src={share.src} alt={share.alt} />
+            <div className={shareButtonImgClasses}>
+              <Image src={share.src} alt={share.alt} fill />
+            </div>
             <p className={shareButtonLabelClasses}>{share.label} </p>
           </Button>
         ))}
