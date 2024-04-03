@@ -10,7 +10,7 @@ import styles from '@/components/layouts/header/sharedHeaderContent/SharedHeader
 const contentClasses = classNames(styles['header-content']);
 const contentContainerClasses = classNames('flex-col', 'align-center');
 const userClasses = classNames(styles['shared-user']);
-const userAvatarClasses = classNames(styles['shared-user-avatar']);
+const userAvatarClasses = classNames(styles['shared-user-avatar'], 'position-relative');
 const userNameClasses = classNames(styles['shared-user-name']);
 const folderNameClasses = classNames(styles['shared-folder-name'], 'text-center');
 
