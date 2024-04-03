@@ -1,8 +1,8 @@
+import '@/public/fonts/font.css';
 import '@/styles/reset.css';
 import '@/styles/globals.css';
 import '@/styles/colors.css';
 import '@/styles/utility.css';
-import '@/fonts/font.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import ReactModal from 'react-modal';
