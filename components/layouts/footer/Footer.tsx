@@ -3,10 +3,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import styles from '@/components/layouts/footer/Footer.module.css';
-import facebook from '@/public/images/akar-icons_facebook-fill.svg';
-import twitter from '@/public/images/akar-icons_twitter-fill.svg';
-import youtube from '@/public/images/akar-icons_youtube-fill.svg';
-import instagram from '@/public/images/ant-design_instagram-filled.svg';
+import facebookSvgUrl from '@/public/images/akar-icons_facebook-fill.svg';
+import twitterSvgUrl from '@/public/images/akar-icons_twitter-fill.svg';
+import youtubeSvgUrl from '@/public/images/akar-icons_youtube-fill.svg';
+import instagramSvgUrl from '@/public/images/ant-design_instagram-filled.svg';
 
 const footerClasses = classNames(
   styles.footer,
@@ -23,10 +23,10 @@ const socialLinkImgClasses = classNames(styles['social-link-icon']);
 
 function Footer() {
   const socialLinks = [
-    { id: 1, src: facebook, alt: 'facebook', href: 'https://www.facebook.com/' },
-    { id: 2, src: twitter, alt: 'twitter', href: 'https://twitter.com/' },
-    { id: 3, src: youtube, alt: 'youtube', href: 'https://www.youtube.com/' },
-    { id: 4, src: instagram, alt: 'instagram', href: 'https://www.instagram.com/' },
+    { id: 1, src: facebookSvgUrl, alt: 'facebook', href: 'https://www.facebook.com/' },
+    { id: 2, src: twitterSvgUrl, alt: 'twitter', href: 'https://twitter.com/' },
+    { id: 3, src: youtubeSvgUrl, alt: 'youtube', href: 'https://www.youtube.com/' },
+    { id: 4, src: instagramSvgUrl, alt: 'instagram', href: 'https://www.instagram.com/' },
   ];
 
   return (

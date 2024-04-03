@@ -2,7 +2,7 @@ import classNames from 'classnames';
 
 import styles from '@/components/common/buttons/AddFolderButton.module.css';
 import Button from '@/components/common/buttons/Button';
-import AddIconSvg from '@/public/images/add-primary.svg';
+import { ReactComponent as AddIconSvg } from '@/public/images/add-primary.svg';
 
 const iconClasses = classNames(styles['add-folder-icon']);
 

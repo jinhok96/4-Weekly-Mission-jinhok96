@@ -10,7 +10,7 @@ import { USER_API_URL, UserIdApiResponse } from '@/apis/api';
 import ErrorMessage from '@/components/common/ErrorMessage';
 import LoginButton from '@/components/common/buttons/LoginButton';
 import styles from '@/components/layouts/header/gnb/Gnb.module.css';
-import LogoSvg from '@/public/images/logo.svg';
+import { ReactComponent as LogoSvg } from '@/public/images/logo.svg';
 import defaultProfileImg from '@/public/images/profile-img.png';
 
 const FOLDER_LOCATION = '/folder';

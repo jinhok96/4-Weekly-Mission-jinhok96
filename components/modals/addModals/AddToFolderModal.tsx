@@ -8,7 +8,7 @@ import AddFolderList from '@/components/common/AddFolderList';
 import ModalButton from '@/components/common/buttons/ModalButton';
 import ModalContainer from '@/components/modals/ModalContainer';
 import styles from '@/components/modals/addModals/AddToFolderModal.module.css';
-import CheckSvg from '@/public/images/check.svg';
+import { ReactComponent as CheckSvg } from '@/public/images/check.svg';
 
 const titleClasses = classNames(styles.title, 'text-color-gray100', 'text-center');
 const linkClasses = classNames(styles.link, 'text-color-gray60', 'text-center');

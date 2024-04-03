@@ -3,7 +3,7 @@ import React from 'react';
 
 import Button from '@/components/common/buttons/Button';
 import styles from '@/components/common/buttons/KebabButton.module.css';
-import StarSvg from '@/public/images/star.svg';
+import { ReactComponent as StarSvg } from '@/public/images/star.svg';
 
 const buttonImageClasses = classNames('width-full');
 

@@ -6,7 +6,7 @@ import useModal from 'hooks/useModal';
 import AddLinkButton from '@/components/common/buttons/AddLInkButton';
 import styles from '@/components/layouts/header/addLinkBar/AddLinkBar.module.css';
 import { modalList } from '@/contexts/Modal';
-import AddLinkSvg from '@/public/images/link.svg';
+import { ReactComponent as AddLinkSvg } from '@/public/images/link.svg';
 
 const addLinkClasses = classNames(styles['add-link-bar'], 'position-relative', 'width-full', 'margin-auto');
 const inputClasses = classNames(styles['add-link-bar-input'], 'background-white', 'text-color-gray60', 'width-full');

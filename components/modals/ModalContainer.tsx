@@ -4,7 +4,7 @@ import ReactModal from 'react-modal';
 
 import Button from '@/components/common/buttons/Button';
 import styles from '@/components/modals/ModalContainer.module.css';
-import CloseSvg from '@/public/images/close.svg';
+import { ReactComponent as CloseSvg } from '@/public/images/close.svg';
 
 // ReactModal 주요 Props
 //

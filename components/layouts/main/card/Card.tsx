@@ -9,7 +9,7 @@ import SelectMenu from '@/components/common/SelectMenu';
 import KebabButton from '@/components/common/buttons/KebabButton';
 import StarButton from '@/components/common/buttons/StarButton';
 import styles from '@/components/layouts/main/card/Card.module.css';
-import NoImageSvg from '@/public/images/card-no-image.svg';
+import { ReactComponent as NoImageSvg } from '@/public/images/card-no-image.svg';
 
 const cardClasses = classNames(styles.card, 'position-relative');
 const hiddenSelectMenuClasses = classNames('display-none');

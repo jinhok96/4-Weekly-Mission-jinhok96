@@ -5,9 +5,9 @@ import { FolderData } from '@/apis/api';
 import Button from '@/components/common/buttons/Button';
 import ModalContainer from '@/components/modals/ModalContainer';
 import styles from '@/components/modals/shareModals/ShareModal.module.css';
-import Facebook from '@/public/images/share-facebook.svg';
-import Kakao from '@/public/images/share-kakao.svg';
-import LinkCopy from '@/public/images/share-link-copy.svg';
+import facebookSvgUrl from '@/public/images/share-facebook.svg';
+import kakaoSvgUrl from '@/public/images/share-kakao.svg';
+import linkCopySvgUrl from '@/public/images/share-link-copy.svg';
 
 const titleClasses = classNames(styles.title, 'text-color-gray100', 'text-center');
 const folderTitleClasses = classNames(styles['folder-title'], 'text-color-gray60', 'text-center');
@@ -41,19 +41,19 @@ function ShareModal({ folder, onClose }: ShareModalProps) {
     {
       label: '카카오톡',
       type: 'kakao',
-      src: Kakao,
+      src: kakaoSvgUrl,
       alt: 'kakao-icon',
     },
     {
       label: '페이스북',
       type: 'facebook',
-      src: Facebook,
+      src: facebookSvgUrl,
       alt: 'facebook-icon',
     },
     {
       label: '링크 복사',
       type: 'linkCopy',
-      src: LinkCopy,
+      src: linkCopySvgUrl,
       alt: 'link-copy-icon',
     },
   ];

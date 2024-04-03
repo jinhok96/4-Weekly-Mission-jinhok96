@@ -4,7 +4,7 @@ import React, { useContext } from 'react';
 import styles from '@/components/layouts/main/searchBar/SearchBar.module.css';
 import { InputStateContext } from '@/contexts/InputStateProvider';
 import { ReactComponent as ResetSvg } from '@/public/images/close-icon-dark.svg';
-import SearchIconSvg from '@/public/images/search-icon.svg';
+import { ReactComponent as SearchIconSvg } from '@/public/images/search-icon.svg';
 
 const containerClasses = classNames(styles['search-bar'], 'position-relative', 'width-full');
 const inputClasses = classNames(styles['search-bar-input'], 'background-light', 'text-color-text', 'width-full');
