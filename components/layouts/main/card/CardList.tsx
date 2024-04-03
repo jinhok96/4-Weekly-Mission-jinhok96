@@ -34,26 +34,29 @@ function CardList({ folderId = 0 }: CardListProps) {
   const linkList = data?.data ?? [];
   const linkCount = linkList?.length ?? 0;
 
+  // 입력 상태를 소문자로 변환
+  const inputStateLower = inputState.toLowerCase();
+
+  // 필터링할 때 소문자로 변환하여 대소문자 구분 없이 비교
+  const filteredLinkList = linkList.filter(
+    (link) =>
+      link.title?.toLowerCase().includes(inputStateLower) ||
+      link.description?.toLowerCase().includes(inputStateLower) ||
+      link.url.toLowerCase().includes(inputStateLower)
+  );
+
   return (
     <div>
-      {linkCount > 0 ? (
+      {linkCount > 0 && (
         <div className={cardListClasses}>
-          {linkList
-            .filter(
-              (link) =>
-                link.title?.includes(inputState) ||
-                link.description?.includes(inputState) ||
-                link.url.includes(inputState)
-            )
-            .map((link) => (
-              <Card key={link.id} linkData={link} />
-            ))}
+          {filteredLinkList.map((link) => (
+            <Card key={link.id} linkData={link} />
+          ))}
           {loading && <ErrorMessage message={LOADING_MESSAGE} />}
           {error !== null && <ErrorMessage message={String(error)} />}
         </div>
-      ) : (
-        <p className={noCardListTextBoxClasses}>저장된 링크가 없습니다</p>
       )}
+      {linkCount <= 0 && <p className={noCardListTextBoxClasses}>저장된 링크가 없습니다</p>}
     </div>
   );
 }
