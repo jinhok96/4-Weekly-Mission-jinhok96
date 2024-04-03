@@ -11,11 +11,11 @@ import FloatingAddFolderButton from '@/components/common/buttons/FloatingAddFold
 import Footer from '@/components/layouts/footer/Footer';
 import Header from '@/components/layouts/header/Header';
 import AddLinkBar from '@/components/layouts/header/addLinkBar/AddLinkBar';
-import FolderHeaderContent from '@/components/layouts/header/folderHeaderContent/FolderHeaderContent';
 import Main from '@/components/layouts/main/Main';
 import CardList from '@/components/layouts/main/card/CardList';
 import SearchBar from '@/components/layouts/main/searchBar/SearchBar';
 import SortingSection from '@/components/layouts/main/sortingSection/SortingSection';
+import HeaderContent from '@/pages/folder/headerContent/HeaderContent';
 import styles from '@/pages/folder/index.module.css';
 
 const searchResultTitleClasses = classNames(styles['search-result-title'], 'text-color-gray60');
@@ -80,7 +80,7 @@ function Folder() {
       <div className={containerClasses}>
         <div ref={headerObservationTargetRef}>
           <Header>
-            <FolderHeaderContent />
+            <HeaderContent />
           </Header>
         </div>
         <Main>

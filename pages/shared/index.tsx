@@ -2,10 +2,10 @@ import classNames from 'classnames';
 
 import Footer from '@/components/layouts/footer/Footer';
 import Header from '@/components/layouts/header/Header';
-import SharedHeaderContent from '@/components/layouts/header/sharedHeaderContent/SharedHeaderContent';
 import Main from '@/components/layouts/main/Main';
 import CardList from '@/components/layouts/main/card/CardList';
 import SearchBar from '@/components/layouts/main/searchBar/SearchBar';
+import HeaderContent from '@/pages/shared/headerContent/HeaderContent';
 
 // import styles from '@/pages/SharedPage/SharedPage.module.css';
 
@@ -16,7 +16,7 @@ function Shared() {
     <div>
       <div className={containerClasses}>
         <Header>
-          <SharedHeaderContent />
+          <HeaderContent />
         </Header>
         <Main>
           <SearchBar />

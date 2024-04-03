@@ -5,7 +5,7 @@ import useFetch from 'hooks/useFetch';
 
 import { SampleFolderApiResponse, SAMPLE_FOLDER_API_URL } from '@/apis/api';
 import ErrorMessage from '@/components/common/ErrorMessage';
-import styles from '@/components/layouts/header/sharedHeaderContent/SharedHeaderContent.module.css';
+import styles from '@/pages/shared/headerContent/HeaderContent.module.css';
 
 const contentClasses = classNames(styles['header-content']);
 const contentContainerClasses = classNames('flex-col', 'align-center');
@@ -15,7 +15,7 @@ const userNameClasses = classNames(styles['shared-user-name']);
 const folderNameClasses = classNames(styles['shared-folder-name'], 'text-center');
 
 // 폴더 정보 출력
-function SharedHeaderContent() {
+function HeaderContent() {
   const LOADING_MESSAGE = 'Loading...';
 
   // 폴더 정보 가져오기
@@ -47,4 +47,4 @@ function SharedHeaderContent() {
   );
 }
 
-export default SharedHeaderContent;
+export default HeaderContent;

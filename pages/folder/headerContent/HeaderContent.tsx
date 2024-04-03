@@ -1,11 +1,11 @@
 import classNames from 'classnames';
 
 import AddLinkBar from '@/components/layouts/header/addLinkBar/AddLinkBar';
-import styles from '@/components/layouts/header/folderHeaderContent/FolderHeaderContent.module.css';
+import styles from '@/pages/folder/headerContent/HeaderContent.module.css';
 
 const contentClasses = classNames(styles['header-content'], 'margin-auto');
 
-function FolderHeaderContent() {
+function HeaderContent() {
   return (
     <div className={contentClasses}>
       <AddLinkBar />
@@ -13,4 +13,4 @@ function FolderHeaderContent() {
   );
 }
 
-export default FolderHeaderContent;
+export default HeaderContent;
