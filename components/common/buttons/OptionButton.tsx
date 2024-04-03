@@ -27,7 +27,7 @@ function OptionButton({ imageUrl, text, className = '', onClick }: OptionButtonP
   return (
     <Button className={optionClasses} onClick={onClick}>
       <div className={optionImageClasses}>
-        <Image src={imageUrl} alt={text} fill sizes="100vw" />
+        <Image src={imageUrl} alt={text} fill />
       </div>
       {text}
     </Button>

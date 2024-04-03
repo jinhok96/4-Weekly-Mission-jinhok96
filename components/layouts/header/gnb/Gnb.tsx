@@ -47,14 +47,14 @@ function Gnb() {
         <div className={containerClasses}>
           <Link href="/" onClick={scrollToTop}>
             <div className={logoClasses}>
-              <Image src={logoSvg} alt="logo" fill sizes="100vw" />
+              <Image src={logoSvg} alt="logo" fill />
             </div>
           </Link>
           {loading && <ErrorMessage message={LOADING_MESSAGE} />}
           {userInfo ? (
             <div className={profileClasses}>
               <div className={profileImgClasses}>
-                <Image src={userProfileImg} alt="profile-img" fill sizes="100vw" />
+                <Image src={userProfileImg} alt="profile-img" fill />
               </div>
               <p className={profileEmailClasses}>{userEmail}</p>
             </div>
