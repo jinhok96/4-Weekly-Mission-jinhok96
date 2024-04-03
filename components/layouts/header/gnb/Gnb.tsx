@@ -10,14 +10,14 @@ import { USER_API_URL, UserIdApiResponse } from '@/apis/api';
 import ErrorMessage from '@/components/common/ErrorMessage';
 import LoginButton from '@/components/common/buttons/LoginButton';
 import styles from '@/components/layouts/header/gnb/Gnb.module.css';
-import { ReactComponent as LogoSvg } from '@/public/images/logo.svg';
+import logoSvg from '@/public/images/logo.svg';
 import defaultProfileImg from '@/public/images/profile-img.png';
 
 const FOLDER_LOCATION = '/folder';
 const LOADING_MESSAGE = 'Loading...';
 
 const containerClasses = classNames('flex-row', 'align-center', 'justify-space-between');
-const logoClasses = classNames(styles['gnb-logo']);
+const logoClasses = classNames(styles['gnb-logo'], 'position-relative');
 const profileClasses = classNames(styles['gnb-profile'], 'flex-row', 'align-center');
 const profileImgClasses = classNames(styles['profile-img'], 'position-relative');
 const profileEmailClasses = classNames(styles['profile-email'], 'hidden-block-mobile-only', 'text-color-gray100');
@@ -46,13 +46,15 @@ function Gnb() {
       <nav className={navClasses}>
         <div className={containerClasses}>
           <Link href="/" onClick={scrollToTop}>
-            <LogoSvg className={logoClasses} />
+            <div className={logoClasses}>
+              <Image src={logoSvg} alt="logo" fill />
+            </div>
           </Link>
           {loading && <ErrorMessage message={LOADING_MESSAGE} />}
           {userInfo ? (
             <div className={profileClasses}>
               <div className={profileImgClasses}>
-                <Image src={userProfileImg} alt="profile-img" fill />
+                <Image src={userProfileImg} alt="profile-img" fill sizes="100vw" />
               </div>
               <p className={profileEmailClasses}>{userEmail}</p>
             </div>
