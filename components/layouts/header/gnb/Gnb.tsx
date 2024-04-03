@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { FOLDER_LOCATION, LOADING_MESSAGE } from 'constants/constants';
+import { FOLDER_LOCATION, HOME_LOCATION, LOADING_MESSAGE } from 'constants/constants';
 import useFetch from 'hooks/useFetch';
 import scrollToTop from 'utils/scrollToTop';
 
@@ -43,7 +43,7 @@ function Gnb() {
     <div>
       <nav className={navClasses}>
         <div className={containerClasses}>
-          <Link href="/" onClick={scrollToTop}>
+          <Link href={HOME_LOCATION} onClick={scrollToTop}>
             <div className={logoClasses}>
               <Image src={logoSvg} alt="logo" fill />
             </div>

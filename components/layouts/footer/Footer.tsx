@@ -2,6 +2,8 @@ import classNames from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { SOCIAL_LINK_LIST } from 'constants/constants';
+
 import styles from '@/components/layouts/footer/Footer.module.css';
 import facebookSvgUrl from '@/public/images/akar-icons_facebook-fill.svg';
 import twitterSvgUrl from '@/public/images/akar-icons_twitter-fill.svg';
@@ -23,10 +25,10 @@ const socialLinkImgClasses = classNames(styles['social-link-icon'], 'position-re
 
 function Footer() {
   const socialLinks = [
-    { id: 1, src: facebookSvgUrl, alt: 'facebook', href: 'https://www.facebook.com/' },
-    { id: 2, src: twitterSvgUrl, alt: 'twitter', href: 'https://twitter.com/' },
-    { id: 3, src: youtubeSvgUrl, alt: 'youtube', href: 'https://www.youtube.com/' },
-    { id: 4, src: instagramSvgUrl, alt: 'instagram', href: 'https://www.instagram.com/' },
+    { src: facebookSvgUrl, id: SOCIAL_LINK_LIST.facebook.id, href: SOCIAL_LINK_LIST.facebook.url },
+    { src: twitterSvgUrl, id: SOCIAL_LINK_LIST.twitter.id, href: SOCIAL_LINK_LIST.twitter.url },
+    { src: youtubeSvgUrl, id: SOCIAL_LINK_LIST.youtube.id, href: SOCIAL_LINK_LIST.youtube.url },
+    { src: instagramSvgUrl, id: SOCIAL_LINK_LIST.instagram.id, href: SOCIAL_LINK_LIST.instagram.url },
   ];
 
   return (
@@ -40,7 +42,7 @@ function Footer() {
         {socialLinks.map((link) => (
           <Link href={link.href} key={link.id} target="_blank">
             <div className={socialLinkImgClasses}>
-              <Image src={link.src} alt={link.alt} fill />
+              <Image src={link.src} alt={link.id} fill />
             </div>
           </Link>
         ))}

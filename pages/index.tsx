@@ -1,6 +1,8 @@
 import classNames from 'classnames';
 import Link from 'next/link';
 
+import { FOLDER_LOCATION, SHARED_LOCATION } from 'constants/constants';
+
 import Button from '@/components/common/buttons/Button';
 import styles from '@/pages/index.module.css';
 import scrollToTop from '@/utils/scrollToTop';
@@ -12,10 +14,10 @@ const linkFolderPageButtonClasses = classNames(styles.button, 'background-primar
 export default function Home() {
   return (
     <main className={containerClasses}>
-      <Link href="/shared" onClick={scrollToTop}>
+      <Link href={SHARED_LOCATION} onClick={scrollToTop}>
         <Button className={linkSharedPageButtonClasses}>SharedPage</Button>
       </Link>
-      <Link href="/folder" onClick={scrollToTop}>
+      <Link href={FOLDER_LOCATION} onClick={scrollToTop}>
         <Button className={linkFolderPageButtonClasses}>FolderPage</Button>
       </Link>
     </main>
