@@ -27,6 +27,6 @@
     },
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "typings.d.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "custom.d.ts"],
   "exclude": ["node_modules", "build", "scripts"]
 }
