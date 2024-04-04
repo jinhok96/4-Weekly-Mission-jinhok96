@@ -11,7 +11,7 @@ import { USER_API_URL, UserIdApiResponse } from '@/apis/api';
 import ErrorMessage from '@/components/common/ErrorMessage';
 import LoginButton from '@/components/common/buttons/LoginButton';
 import styles from '@/components/layouts/header/gnb/Gnb.module.css';
-import logoSvg from '@/public/images/logo.svg';
+import logoSvgUrl from '@/public/images/logo.svg';
 import defaultProfileImg from '@/public/images/profile-img.png';
 
 const containerClasses = classNames('flex-row', 'align-center', 'justify-space-between');
@@ -45,7 +45,7 @@ function Gnb() {
         <div className={containerClasses}>
           <Link href={HOME_LOCATION} onClick={scrollToTop}>
             <div className={logoClasses}>
-              <Image src={logoSvg} alt="logo" fill />
+              <Image src={logoSvgUrl} alt="logo" fill />
             </div>
           </Link>
           {loading && <ErrorMessage message={LOADING_MESSAGE} />}
