@@ -1,0 +1,55 @@
+.search-bar {
+  margin-bottom: 3.2rem;
+}
+
+.search-bar-input {
+  padding: 1.3rem 1.6rem 1.3rem 3.8rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.search-bar-input:focus {
+  outline: none;
+}
+
+.search-bar-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 1.6rem;
+}
+
+.input-reset-button {
+  width: 1.6rem;
+  height: 1.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1.6rem;
+  border: none;
+  cursor: pointer;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .search-bar {
+    margin-bottom: 4rem;
+  }
+
+  .search-bar-input {
+    padding: 1.5rem 1.6rem 1.5rem 4.2rem;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+
+  .input-reset-button {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1200px) {
+}
