@@ -40,18 +40,15 @@ function CardList({ folderId = 0, filter = '' }: CardListProps) {
       link.url.toLowerCase().includes(filterLowerCase)
   );
 
+  if (linkCount <= 0) return <p className={noCardListTextBoxClasses}>저장된 링크가 없습니다</p>;
+
   return (
-    <div>
-      {linkCount > 0 && (
-        <div className={cardListClasses}>
-          {filteredLinkList.map((link) => (
-            <Card key={link.id} linkData={link} />
-          ))}
-          {loading && <ErrorMessage message={LOADING_MESSAGE} />}
-          {error !== null && <ErrorMessage message={String(error)} />}
-        </div>
-      )}
-      {linkCount <= 0 && <p className={noCardListTextBoxClasses}>저장된 링크가 없습니다</p>}
+    <div className={cardListClasses}>
+      {filteredLinkList.map((link) => (
+        <Card key={link.id} linkData={link} />
+      ))}
+      {loading && <ErrorMessage message={LOADING_MESSAGE} />}
+      {error !== null && <ErrorMessage message={String(error)} />}
     </div>
   );
 }
