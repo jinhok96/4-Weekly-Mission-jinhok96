@@ -1,11 +1,11 @@
 import classNames from 'classnames';
 import React from 'react';
 
-import { ALL_DEFAULT_DATA, LOADING_MESSAGE } from 'constants/constants';
+import { ALL_DEFAULT_DATA } from 'constants/constants';
 import useFetch from 'hooks/useFetch';
 import useModal from 'hooks/useModal';
 
-import { FOLDERS_API_URL, LINKS_API_URL, FolderApiResponse, LinksApiResponse } from '@/apis/api';
+import { FOLDERS_API_URL, FolderApiResponse } from '@/apis/api';
 import ErrorMessage from '@/components/common/ErrorMessage';
 import AddFolderButton from '@/components/common/buttons/AddFolderButton';
 import OptionButton from '@/components/common/buttons/OptionButton';
@@ -39,15 +39,10 @@ function SortingSection({ selectedFolder, setSelectedFolder }: SortingSectionPro
   const { openModal } = useModal();
 
   const url = FOLDERS_API_URL;
-  const { data, loading, error } = useFetch<FolderApiResponse>(url);
+  const { data, error } = useFetch<FolderApiResponse>(url);
 
   // {id, created_at, name, user_id, favorite, link: {count}}
   const folderList = [ALL_DEFAULT_DATA, ...(data?.data ?? [])];
-
-  // 총 링크 수 계산
-  const allLinkUrl = LINKS_API_URL;
-  const { data: allLink } = useFetch<LinksApiResponse>(allLinkUrl);
-  const linkCount = allLink?.data?.length ?? 0;
 
   // 옵션 리스트
   type OptionType = 'share' | 'editFolderName' | 'deleteFolder';
@@ -102,43 +97,38 @@ function SortingSection({ selectedFolder, setSelectedFolder }: SortingSectionPro
 
   return (
     <div>
-      {linkCount > 0 && (
-        <div>
-          <div className={sortingSectionClasses}>
-            <div className={sortingButtonListClasses}>
-              {folderList.map((folder) => (
-                <SortingButton
-                  key={folder.id}
-                  className={selectedFolder.id === folder.id ? selectedButtonClasses : sortingButtonClasses}
-                  onClick={() => handleSortingButtonClick(folder.id)}
-                >
-                  {folder.name}
-                </SortingButton>
-              ))}
-              {loading && <ErrorMessage message={LOADING_MESSAGE} />}
-              {error !== null && <ErrorMessage message={String(error)} />}
-            </div>
-            <AddFolderButton className={addFolderButtonClasses} onClick={handleAddFolderButtonClick} />
-          </div>
-          <div className={folderInfoSectionClasses}>
-            <p className={titleClasses}>{selectedFolder.name}</p>
-            {selectedFolder.id !== ALL_DEFAULT_DATA.id && (
-              <div className={optionListClasses}>
-                {optionList.map((option) => (
-                  <OptionButton
-                    key={option.key}
-                    imageUrl={option.image}
-                    className={optionListClasses}
-                    onClick={handleOptionListClick[option.key]}
-                  >
-                    {option.name}
-                  </OptionButton>
-                ))}
-              </div>
-            )}
-          </div>
+      <div className={sortingSectionClasses}>
+        <div className={sortingButtonListClasses}>
+          {folderList.map((folder) => (
+            <SortingButton
+              key={folder.id}
+              className={selectedFolder.id === folder.id ? selectedButtonClasses : sortingButtonClasses}
+              onClick={() => handleSortingButtonClick(folder.id)}
+            >
+              {folder.name}
+            </SortingButton>
+          ))}
+          {error !== null && <ErrorMessage message={String(error)} />}
         </div>
-      )}
+        <AddFolderButton className={addFolderButtonClasses} onClick={handleAddFolderButtonClick} />
+      </div>
+      <div className={folderInfoSectionClasses}>
+        <p className={titleClasses}>{selectedFolder.name}</p>
+        {selectedFolder.id !== ALL_DEFAULT_DATA.id && (
+          <div className={optionListClasses}>
+            {optionList.map((option) => (
+              <OptionButton
+                key={option.key}
+                imageUrl={option.image}
+                className={optionListClasses}
+                onClick={handleOptionListClick[option.key]}
+              >
+                {option.name}
+              </OptionButton>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
