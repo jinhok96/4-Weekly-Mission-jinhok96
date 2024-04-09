@@ -21,13 +21,11 @@ function AddFolderButton({ className = '', onClick }: AddFolderButtonProps) {
     className
   );
 
-  const button = (
+  return (
     <Button className={buttonClasses} text="폴더 추가" onClick={onClick}>
       <AddIconSvg className={iconClasses} />
     </Button>
   );
-
-  return button;
 }
 
 export default AddFolderButton;
