@@ -22,7 +22,8 @@ function AddFolderButton({ className = '', onClick }: AddFolderButtonProps) {
   );
 
   return (
-    <Button className={buttonClasses} text="폴더 추가" onClick={onClick}>
+    <Button className={buttonClasses} onClick={onClick}>
+      폴더 추가
       <AddIconSvg className={iconClasses} />
     </Button>
   );

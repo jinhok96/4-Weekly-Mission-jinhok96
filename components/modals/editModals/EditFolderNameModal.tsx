@@ -36,7 +36,9 @@ function EditFolderNameModal({ folder, onSubmit, onClose }: EditFolderNameModalP
     <ModalContainer onClose={onClose}>
       <p className={titleClasses}>폴더 이름 변경</p>
       <TextInput className={inputClasses} value={inputValue} onChange={handleInputChange} placeholder="내용 입력" />
-      <ModalButton className={buttonClasses} text="변경하기" onClick={handleButtonClick} />
+      <ModalButton className={buttonClasses} onClick={handleButtonClick}>
+        변경하기
+      </ModalButton>
     </ModalContainer>
   );
 }

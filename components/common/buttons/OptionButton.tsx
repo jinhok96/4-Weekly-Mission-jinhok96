@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import Image from 'next/image';
+import React from 'react';
 
 import Button from '@/components/common/buttons/Button';
 import styles from '@/components/common/buttons/OptionButton.module.css';
@@ -8,12 +9,12 @@ const optionImageClasses = classNames(styles['option-image'], 'position-relative
 
 interface OptionButtonProps {
   imageUrl: string;
-  text: string;
+  children: React.ReactNode;
   className?: string;
   onClick: () => void;
 }
 
-function OptionButton({ imageUrl, text, className = '', onClick }: OptionButtonProps) {
+function OptionButton({ imageUrl, children, className = '', onClick }: OptionButtonProps) {
   const optionClasses = classNames(
     styles.option,
     'flex-row',
@@ -27,9 +28,9 @@ function OptionButton({ imageUrl, text, className = '', onClick }: OptionButtonP
   return (
     <Button className={optionClasses} onClick={onClick}>
       <div className={optionImageClasses}>
-        <Image src={imageUrl} alt={text} fill />
+        <Image src={imageUrl} alt={imageUrl} fill />
       </div>
-      {text}
+      {children}
     </Button>
   );
 }

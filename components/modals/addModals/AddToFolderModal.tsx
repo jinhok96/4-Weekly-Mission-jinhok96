@@ -88,7 +88,9 @@ function AddToFolderModal({ link, onSubmit, onClose }: AddfolderModalProps) {
       </div>
       {loading && <div>{LOADING_MESSAGE}</div>}
       {error !== null && <div>{String(error)}</div>}
-      <ModalButton className={buttonClasses} text="추가하기" onClick={handleButtonClick} />
+      <ModalButton className={buttonClasses} onClick={handleButtonClick}>
+        추가하기
+      </ModalButton>
     </ModalContainer>
   );
 }

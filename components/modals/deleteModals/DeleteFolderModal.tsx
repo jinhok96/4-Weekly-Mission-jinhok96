@@ -27,7 +27,9 @@ function DeleteFolderModal({ folder, onSubmit, onClose }: DeleteFolderModalProps
     <ModalContainer onClose={onClose}>
       <p className={titleClasses}>폴더 삭제</p>
       <p className={folderTitleClasses}>{name}</p>
-      <ModalButton className={buttonClasses} text="삭제하기" onClick={handleButtonClick} />
+      <ModalButton className={buttonClasses} onClick={handleButtonClick}>
+        삭제하기
+      </ModalButton>
     </ModalContainer>
   );
 }

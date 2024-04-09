@@ -19,7 +19,8 @@ function FloatingAddFolderButton({ className = '', onClick }: FloatingAddFolderB
     className
   );
   const button = (
-    <Button className={buttonClasses} text="폴더 추가" onClick={onClick}>
+    <Button className={buttonClasses} onClick={onClick}>
+      폴더 추가
       <AddIconSvg className={iconClasses} />
     </Button>
   );

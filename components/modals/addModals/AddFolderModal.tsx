@@ -34,7 +34,9 @@ function AddFolderModal({ onSubmit, onClose }: AddFolderModalProps) {
     <ModalContainer onClose={onClose}>
       <p className={titleClasses}>폴더 추가</p>
       <TextInput className={inputClasses} value={inputValue} onChange={handleInputChange} placeholder="내용 입력" />
-      <ModalButton className={buttonClasses} text="추가하기" onClick={handleButtonClick} />
+      <ModalButton className={buttonClasses} onClick={handleButtonClick}>
+        추가하기
+      </ModalButton>
     </ModalContainer>
   );
 }

@@ -63,7 +63,7 @@ function SelectMenu({ className = '', link }: SelectMenuProps) {
       <div className={menuContainerClasses}>
         {menuList.map((menu) => (
           <Button key={menu.id} className={`${menuElementClasses} `} name={menu.id} onClick={handleMenuClick}>
-            menu.label
+            {menu.label}
           </Button>
         ))}
       </div>

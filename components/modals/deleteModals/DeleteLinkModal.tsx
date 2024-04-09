@@ -27,7 +27,9 @@ function DeleteLinkModal({ link, onSubmit, onClose }: DeleteLinkModalProps) {
     <ModalContainer onClose={onClose}>
       <p className={titleClasses}>링크 삭제</p>
       <p className={linkClasses}>{url ?? '링크 주소'}</p>
-      <ModalButton className={buttonClasses} text="삭제하기" onClick={handleButtonClick} />
+      <ModalButton className={buttonClasses} onClick={handleButtonClick}>
+        삭제하기
+      </ModalButton>
     </ModalContainer>
   );
 }

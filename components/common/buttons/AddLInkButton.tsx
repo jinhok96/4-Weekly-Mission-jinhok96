@@ -11,7 +11,11 @@ interface AddLinkButtonProps {
 function AddLinkButton({ className = '', onClick }: AddLinkButtonProps) {
   const buttonClasses = classNames(styles['add-link-button'], 'background-gra-primary', 'text-color-light', className);
 
-  const button = <Button className={buttonClasses} text="추가하기" onClick={onClick} />;
+  const button = (
+    <Button className={buttonClasses} onClick={onClick}>
+      추가하기
+    </Button>
+  );
   return button;
 }
 

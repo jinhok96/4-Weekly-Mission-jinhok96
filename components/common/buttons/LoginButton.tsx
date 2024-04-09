@@ -6,7 +6,7 @@ import styles from '@/components/common/buttons/LoginButton.module.css';
 const buttonClasses = classNames(styles['login-button'], 'background-gra-primary', 'text-color-light');
 
 function LoginButton() {
-  const button = <Button className={buttonClasses} text="로그인" />;
+  const button = <Button className={buttonClasses}>로그인</Button>;
   return button;
 }
 

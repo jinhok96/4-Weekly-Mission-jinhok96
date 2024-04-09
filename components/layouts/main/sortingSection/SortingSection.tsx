@@ -109,10 +109,11 @@ function SortingSection({ selectedFolder, setSelectedFolder }: SortingSectionPro
               {folderList.map((folder) => (
                 <SortingButton
                   key={folder.id}
-                  text={folder.name}
                   className={selectedFolder.id === folder.id ? selectedButtonClasses : sortingButtonClasses}
                   onClick={() => handleSortingButtonClick(folder.id)}
-                />
+                >
+                  {folder.name}
+                </SortingButton>
               ))}
               {loading && <ErrorMessage message={LOADING_MESSAGE} />}
               {error !== null && <ErrorMessage message={String(error)} />}
@@ -126,11 +127,12 @@ function SortingSection({ selectedFolder, setSelectedFolder }: SortingSectionPro
                 {optionList.map((option) => (
                   <OptionButton
                     key={option.key}
-                    text={option.name}
                     imageUrl={option.image}
                     className={optionListClasses}
                     onClick={handleOptionListClick[option.key]}
-                  />
+                  >
+                    {option.name}
+                  </OptionButton>
                 ))}
               </div>
             )}
