@@ -1,6 +1,8 @@
-export const HOME_LOCATION = '/';
-export const FOLDER_LOCATION = '/folder';
-export const SHARED_LOCATION = '/shared';
+export const ROUTE_PATHS = {
+  home: '/',
+  folder: '/folder',
+  shared: '/shared',
+};
 
 export const LOADING_MESSAGE = 'Loading...';
 

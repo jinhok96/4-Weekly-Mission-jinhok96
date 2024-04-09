@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { FOLDER_LOCATION, HOME_LOCATION, LOADING_MESSAGE } from 'constants/constants';
+import { LOADING_MESSAGE, ROUTE_PATHS } from 'constants/constants';
 import useFetch from 'hooks/useFetch';
 import scrollToTop from 'utils/scrollToTop';
 
@@ -35,15 +35,20 @@ function Gnb() {
   const userEmail = userInfo?.email ?? '';
 
   // /folder에서는 position-fixed 제거
-  const navClasses = classNames(styles.gnb, { 'position-fixed': pathname !== FOLDER_LOCATION }, 'margin-auto', 'z-top');
+  const navClasses = classNames(
+    styles.gnb,
+    { 'position-fixed': pathname !== ROUTE_PATHS.folder },
+    'margin-auto',
+    'z-top'
+  );
   // gnb의 position-fixed에 대한 더미
-  const navDummyClasses = classNames({ [styles['nav-dummy']]: pathname !== FOLDER_LOCATION });
+  const navDummyClasses = classNames({ [styles['nav-dummy']]: pathname !== ROUTE_PATHS.folder });
 
   return (
     <div>
       <nav className={navClasses}>
         <div className={containerClasses}>
-          <Link href={HOME_LOCATION} onClick={scrollToTop}>
+          <Link href={ROUTE_PATHS.home} onClick={scrollToTop}>
             <div className={logoClasses}>
               <Image src={logoSvgUrl} alt="logo" fill />
             </div>
