@@ -8,11 +8,11 @@ interface ButtonProps extends React.ComponentProps<'button'> {
   text?: string;
 }
 
-function Button({ className = '', text = '', onClick, children = null }: ButtonProps) {
+function Button({ className = '', text = '', onClick, name = '', children = null }: ButtonProps) {
   const buttonClasses = classNames(styles.button, 'cursor-pointer', className);
 
   const button = (
-    <button className={buttonClasses} type="button" onClick={onClick}>
+    <button className={buttonClasses} type="button" name={name} onClick={onClick}>
       {text}
       {children}
     </button>
