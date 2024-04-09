@@ -29,7 +29,7 @@ function SelectMenu({ className = '', link }: SelectMenuProps) {
     },
   ];
 
-  const handleMenuClick = (e: React.MouseEvent, key: string) => {
+  const handleMenuClick = (e: React.MouseEvent) => {
     e.stopPropagation();
 
     console.log('MenuList');
@@ -42,7 +42,9 @@ function SelectMenu({ className = '', link }: SelectMenuProps) {
       console.log('handleAddToFolder');
     };
 
-    switch (key) {
+    const buttonName = (e.currentTarget as HTMLButtonElement).name;
+
+    switch (buttonName) {
       case 'deleteLink':
         openModal(modalList.DeleteLinkModal, { onSubmit: handleDeleteLink, link });
         break;
@@ -60,12 +62,9 @@ function SelectMenu({ className = '', link }: SelectMenuProps) {
     <div>
       <div className={menuContainerClasses}>
         {menuList.map((menu) => (
-          <Button
-            key={menu.id}
-            className={`${menuElementClasses} `}
-            text={menu.label}
-            onClick={(e: React.MouseEvent) => handleMenuClick(e, menu.id)}
-          />
+          <Button key={menu.id} className={`${menuElementClasses} `} name={menu.id} onClick={handleMenuClick}>
+            menu.label
+          </Button>
         ))}
       </div>
     </div>
