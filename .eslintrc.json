@@ -92,6 +92,7 @@
           ["@/hooks", "./hooks"],
           ["@/contexts", "./contexts"],
           ["@/apis", "./apis"],
+          ["@/constants", "./constants"],
           ["@/pages", "./pages"],
           ["@/public", "./public"]
         ],
