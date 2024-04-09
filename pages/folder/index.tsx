@@ -1,8 +1,7 @@
 import classNames from 'classnames';
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { ALL_DEFAULT_DATA } from 'constants/constants';
-import { InputStateContext } from 'contexts/InputStateProvider';
 import { modalList } from 'contexts/Modal';
 import useIntersectionObserver from 'hooks/useIntersectionObserver';
 import useModal from 'hooks/useModal';
@@ -37,12 +36,20 @@ const bottomAddLinkBarClasses = classNames(
 );
 
 function Folder() {
+  const [inputState, setInputState] = useState('');
   const [selectedFolder, setSelectedFolder] = useState(ALL_DEFAULT_DATA);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [isFooterVisible, setIsFooterVisible] = useState(false);
   const [isSearchResultVisible, setIsSearchResultVisible] = useState(false);
   const { openModal } = useModal();
-  const { inputState } = useContext(InputStateContext);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputState(e.target.value);
+  };
+
+  const handleInputResetClick = () => {
+    setInputState('');
+  };
 
   const checkVisible = useCallback((setVisible: React.Dispatch<React.SetStateAction<boolean>>, isVisible: boolean) => {
     return () => setVisible(isVisible);
@@ -84,7 +91,7 @@ function Folder() {
           </Header>
         </div>
         <Main>
-          <SearchBar />
+          <SearchBar value={inputState} onChange={handleInputChange} onInputReset={handleInputResetClick} />
           {isSearchResultVisible && (
             <p className={searchResultTitleClasses}>
               <span className="text-color-gray100">{inputState}</span>
@@ -92,7 +99,7 @@ function Folder() {
             </p>
           )}
           <SortingSection selectedFolder={selectedFolder} setSelectedFolder={setSelectedFolder} />
-          <CardList folderId={selectedFolder.id} />
+          <CardList folderId={selectedFolder.id} filter={inputState} />
           <FloatingAddFolderButton className={floatingAddFolderButtonClasses} onClick={handleAddFolderButtonClick} />
         </Main>
       </div>

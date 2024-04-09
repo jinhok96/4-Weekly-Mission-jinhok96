@@ -7,7 +7,6 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import ReactModal from 'react-modal';
 
-import { InputStateContextProvider } from '@/contexts/InputStateProvider';
 import ModalProvider from '@/contexts/ModalProvider';
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -22,9 +21,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <ModalProvider>
-        <InputStateContextProvider>
-          <Component {...pageProps} />
-        </InputStateContextProvider>
+        <Component {...pageProps} />
       </ModalProvider>
     </>
   );

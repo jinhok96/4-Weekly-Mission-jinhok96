@@ -1,8 +1,8 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import classNames from 'classnames';
-import React, { useContext } from 'react';
+import React from 'react';
 
 import styles from '@/components/layouts/main/searchBar/SearchBar.module.css';
-import { InputStateContext } from '@/contexts/InputStateProvider';
 import { ReactComponent as ResetSvg } from '@/public/images/close-icon-dark.svg';
 import { ReactComponent as SearchIconSvg } from '@/public/images/search-icon.svg';
 
@@ -12,30 +12,23 @@ const searchIconClasses = classNames(styles['search-bar-icon'], 'position-absolu
 const inputResetButtonClasses = classNames(styles['input-reset-button'], 'position-absolute');
 const resetIconClasses = classNames('width-full', 'height-full');
 
-function SearchBar() {
-  const { inputState, setInputState } = useContext(InputStateContext);
+interface SearchBarProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  onInputReset: () => void;
+}
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputState(e.target.value);
-  };
-
-  const handleInputResetClick = () => {
-    setInputState('');
-  };
-
+function SearchBar({ value, onChange, onInputReset }: SearchBarProps) {
   return (
     <div className={containerClasses}>
       <input
         className={inputClasses}
         type="text"
-        value={inputState}
-        onChange={handleInputChange}
+        value={value}
+        onChange={onChange}
         placeholder="링크를 검색해 보세요."
       />
       <SearchIconSvg className={searchIconClasses} />
-      {inputState !== '' && (
-        // eslint-disable-next-line jsx-a11y/control-has-associated-label
-        <button className={inputResetButtonClasses} type="button" onClick={handleInputResetClick}>
+      {value !== '' && (
+        <button className={inputResetButtonClasses} type="button" onClick={onInputReset}>
           <ResetSvg className={resetIconClasses} />
         </button>
       )}
