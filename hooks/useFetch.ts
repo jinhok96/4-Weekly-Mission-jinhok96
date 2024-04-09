@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 
-export default function useFetch<T>(apiUrl: string): { data: T | null; loading: boolean; error: unknown | null } {
+export default function useFetch<T>(apiUrl: string): { data: T | null; error: unknown | null } {
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
   // data, error 초기값은 비어있음, loading 초기값은 로딩 중인 상태
   const [data, setData] = useState<T | null>(null);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<unknown | null>(null);
 
   // apiUrl 또는 API_URL이 변경될 경우 실행
@@ -24,8 +23,6 @@ export default function useFetch<T>(apiUrl: string): { data: T | null; loading: 
         setData(result);
       } catch (errorData) {
         setError(errorData);
-      } finally {
-        setLoading(false); // 로딩 끝
       }
     };
 
@@ -34,5 +31,5 @@ export default function useFetch<T>(apiUrl: string): { data: T | null; loading: 
   }, [apiUrl, API_URL]);
 
   // 객체 반환
-  return { data, loading, error };
+  return { data, error };
 }
