@@ -9,9 +9,8 @@ import scrollToTop from 'utils/scrollToTop';
 
 import ErrorMessage from '@/components/common/ErrorMessage';
 import styles from '@/components/layouts/header/gnb/Gnb.module.css';
+import UserProfile from '@/components/layouts/header/gnb/UserProfile';
 import logoSvgUrl from '@/public/images/logo.svg';
-
-import UserProfile from './UserProfile';
 
 const containerClasses = classNames('flex-row', 'align-center', 'justify-space-between');
 const logoClasses = classNames(styles['gnb-logo'], 'position-relative');
