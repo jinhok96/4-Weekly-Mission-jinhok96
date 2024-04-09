@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { Suspense } from 'react';
 
 import { LOADING_MESSAGE } from 'constants/constants';
 import useFetch from 'hooks/useFetch';
@@ -23,11 +24,14 @@ interface CardListProps {
 
 function CardList({ folderId = 0, filter = '' }: CardListProps) {
   const url = folderId === 0 ? LINKS_API_URL : LINKS_FOLDER_ID_API_URL(folderId);
-  const { data, loading, error } = useFetch<LinksApiResponse>(url);
+  const { data, error } = useFetch<LinksApiResponse>(url);
+
+  if (!data?.data) return <p className={noCardListTextBoxClasses}>저장된 링크가 없습니다</p>;
+  if (data.data.length === 0) return <p className={noCardListTextBoxClasses}>저장된 링크가 없습니다</p>;
+  if (error) return <p className={noCardListTextBoxClasses}>저장된 링크가 없습니다</p>;
 
   // {created_at, description, folder_id, id, image_source, title, updated_at, url}
-  const linkList = data?.data ?? [];
-  const linkCount = linkList?.length ?? 0;
+  const linkList = data.data;
 
   // 입력 상태를 소문자로 변환
   const filterLowerCase = filter.toLowerCase();
@@ -40,16 +44,14 @@ function CardList({ folderId = 0, filter = '' }: CardListProps) {
       link.url.toLowerCase().includes(filterLowerCase)
   );
 
-  if (linkCount <= 0) return <p className={noCardListTextBoxClasses}>저장된 링크가 없습니다</p>;
-
   return (
-    <div className={cardListClasses}>
-      {filteredLinkList.map((link) => (
-        <Card key={link.id} linkData={link} />
-      ))}
-      {loading && <ErrorMessage message={LOADING_MESSAGE} />}
-      {error !== null && <ErrorMessage message={String(error)} />}
-    </div>
+    <Suspense fallback={<p className={noCardListTextBoxClasses}>저장된 링크가 없습니다</p>}>
+      <div className={cardListClasses}>
+        {filteredLinkList.map((link) => (
+          <Card key={link.id} linkData={link} />
+        ))}
+      </div>
+    </Suspense>
   );
 }
 
