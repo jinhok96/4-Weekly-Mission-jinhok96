@@ -1,11 +1,9 @@
 import classNames from 'classnames';
 import { Suspense } from 'react';
 
-import { LOADING_MESSAGE } from 'constants/constants';
 import useFetch from 'hooks/useFetch';
 
 import { LINKS_API_URL, LINKS_FOLDER_ID_API_URL, LinksApiResponse } from '@/apis/api';
-import ErrorMessage from '@/components/common/ErrorMessage';
 import Card from '@/components/layouts/main/card/Card';
 import styles from '@/components/layouts/main/card/CardList.module.css';
 
