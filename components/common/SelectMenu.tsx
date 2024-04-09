@@ -45,10 +45,10 @@ function SelectMenu({ className = '', link }: SelectMenuProps) {
     const buttonName = (e.currentTarget as HTMLButtonElement).name;
 
     switch (buttonName) {
-      case 'deleteLink':
+      case menuList[0].id:
         openModal(modalList.DeleteLinkModal, { onSubmit: handleDeleteLink, link });
         break;
-      case 'addToFolder':
+      case menuList[1].id:
         openModal(modalList.AddToForderModal, { onSubmit: handleAddToFolder, link });
         break;
       default:
