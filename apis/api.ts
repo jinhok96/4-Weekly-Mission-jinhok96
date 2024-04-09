@@ -1,3 +1,7 @@
+export type BaseResponse<T> = {
+  data: T;
+};
+
 /**
  * /api/users/1
  */
@@ -13,9 +17,7 @@ export type UserIdData = {
   profileImageSource?: string;
 };
 
-export type UserIdApiResponse = {
-  data: UserIdData[];
-};
+export type UserIdApiResponse = BaseResponse<UserIdData[]>;
 
 // SharedPage에서 사용
 /**
@@ -68,9 +70,7 @@ export type FolderData = {
   link: link;
 };
 
-export type FolderApiResponse = {
-  data: FolderData[];
-};
+export type FolderApiResponse = BaseResponse<FolderData[]>;
 
 // '전체' 폴더
 /**
@@ -89,9 +89,7 @@ export type LinkData = {
   folder_id: number | null;
 };
 
-export type LinksApiResponse = {
-  data: LinkData[];
-};
+export type LinksApiResponse = BaseResponse<LinkData[]>;
 
 // '전체'를 제외한 나머지 폴더
 export function LINKS_FOLDER_ID_API_URL(folderId: number) {
