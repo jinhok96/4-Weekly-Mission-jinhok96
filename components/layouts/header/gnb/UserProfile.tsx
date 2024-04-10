@@ -13,7 +13,7 @@ const profileEmailClasses = classNames(styles['profile-email'], 'hidden-block-mo
 
 export default function UserProfile() {
   const url = USER_API_URL;
-  const { data, isError } = useFetch<UserIdApiResponse>(url, 'userProfile');
+  const { data, isError } = useFetch<UserIdApiResponse>(url, ['userProfile']);
 
   // data가 없을 경우 얼리 리턴
   if (!data?.data) return <LoginButton />;
