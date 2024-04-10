@@ -5,7 +5,7 @@ import React from 'react';
 import Button from '@/components/common/buttons/Button';
 import styles from '@/components/common/buttons/OptionButton.module.css';
 
-const optionImageClasses = classNames(styles['option-image'], 'position-relative');
+const optionImageClasses = classNames(styles['option-image'], 'position-relative', 'overflow-hidden');
 
 interface OptionButtonProps {
   imageUrl: string;
@@ -28,7 +28,13 @@ function OptionButton({ imageUrl, children, className = '', onClick }: OptionBut
   return (
     <Button className={optionClasses} onClick={onClick}>
       <div className={optionImageClasses}>
-        <Image src={imageUrl} alt={imageUrl} fill />
+        <Image
+          src={imageUrl}
+          alt={imageUrl}
+          width={72}
+          height={72}
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        />
       </div>
       {children}
     </Button>

@@ -30,6 +30,21 @@ const titleClasses = classNames(styles.title);
 const optionListClasses = classNames(styles['option-list'], 'flex-row', 'align-center');
 const selectedButtonClasses = classNames('background-primary', 'text-color-white');
 
+// 옵션 리스트
+type OptionType = 'share' | 'editFolderName' | 'deleteFolder';
+
+type OptionListType = {
+  name: string;
+  image: string;
+  key: OptionType;
+};
+
+const optionList: OptionListType[] = [
+  { name: '공유', image: shareSvgUrl, key: 'share' },
+  { name: '이름 변경', image: penSvgUrl, key: 'editFolderName' },
+  { name: '삭제', image: deleteSvgUrl, key: 'deleteFolder' },
+];
+
 interface SortingSectionProps {
   selectedFolder: { id: number; name: string };
   setSelectedFolder: React.Dispatch<React.SetStateAction<{ id: number; name: string }>>;
@@ -39,25 +54,10 @@ function SortingSection({ selectedFolder, setSelectedFolder }: SortingSectionPro
   const { openModal } = useModal();
 
   const url = FOLDERS_API_URL;
-  const { data, error } = useFetch<FolderApiResponse>(url);
+  const { data, error, isError } = useFetch<FolderApiResponse>(url, ['sortingSection']);
 
   // {id, created_at, name, user_id, favorite, link: {count}}
   const folderList = [ALL_DEFAULT_DATA, ...(data?.data ?? [])];
-
-  // 옵션 리스트
-  type OptionType = 'share' | 'editFolderName' | 'deleteFolder';
-
-  type OptionListType = {
-    name: string;
-    image: string;
-    key: OptionType;
-  };
-
-  const optionList: OptionListType[] = [
-    { name: '공유', image: shareSvgUrl, key: 'share' },
-    { name: '이름 변경', image: penSvgUrl, key: 'editFolderName' },
-    { name: '삭제', image: deleteSvgUrl, key: 'deleteFolder' },
-  ];
 
   const handleSortingButtonClick = (key: number) => {
     const targetButton = folderList.find((folder) => folder.id === key);
@@ -108,7 +108,7 @@ function SortingSection({ selectedFolder, setSelectedFolder }: SortingSectionPro
               {folder.name}
             </SortingButton>
           ))}
-          {error !== null && <ErrorMessage message={String(error)} />}
+          {isError && <ErrorMessage message={String(error)} />}
         </div>
         <AddFolderButton className={addFolderButtonClasses} onClick={handleAddFolderButtonClick} />
       </div>

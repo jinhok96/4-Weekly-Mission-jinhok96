@@ -1,14 +1,13 @@
 import classNames from 'classnames';
 import { useState } from 'react';
 
-import { LOADING_MESSAGE } from 'constants/constants';
-import useFetch from 'hooks/useFetch';
-
 import { FOLDERS_API_URL, FolderApiResponse, FolderData } from '@/apis/api';
 import AddFolderList from '@/components/common/AddFolderList';
+import ErrorMessage from '@/components/common/ErrorMessage';
 import ModalButton from '@/components/common/buttons/ModalButton';
 import ModalContainer from '@/components/modals/ModalContainer';
 import styles from '@/components/modals/addModals/AddToFolderModal.module.css';
+import useFetch from '@/hooks/useFetch';
 import { ReactComponent as CheckSvg } from '@/public/images/check.svg';
 
 const titleClasses = classNames(styles.title, 'text-color-gray100', 'text-center');
@@ -32,15 +31,22 @@ interface AddfolderModalProps {
 
 function AddToFolderModal({ link, onSubmit, onClose }: AddfolderModalProps) {
   const foldersUrl = FOLDERS_API_URL;
-  const { data, loading, error } = useFetch<FolderApiResponse>(foldersUrl);
+  const { data, error, isError } = useFetch<FolderApiResponse>(foldersUrl, 'addToFolderModal');
+  const [selectedFolder, setSelectedFolder] = useState<FolderData | null>(null);
+
+  if (isError) {
+    return (
+      <ModalContainer onClose={onClose}>
+        <ErrorMessage message={`${error}`} />
+      </ModalContainer>
+    );
+  }
 
   // {created_at, description, folder_id, id, image_source, title, updated_at, url}
   const { url } = link;
 
   // {id, created_at, name, user_id, favorite, link: {count}}
   const folderList = data?.data ?? [];
-
-  const [selectedFolder, setSelectedFolder] = useState<FolderData | null>(null);
 
   const handleButtonClick = () => {
     if (!selectedFolder) {
@@ -86,8 +92,6 @@ function AddToFolderModal({ link, onSubmit, onClose }: AddfolderModalProps) {
           </AddFolderList>
         ))}
       </div>
-      {loading && <div>{LOADING_MESSAGE}</div>}
-      {error !== null && <div>{String(error)}</div>}
       <ModalButton className={buttonClasses} onClick={handleButtonClick}>
         추가하기
       </ModalButton>

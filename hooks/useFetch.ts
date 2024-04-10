@@ -1,35 +1,31 @@
-import { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 
-export default function useFetch<T>(apiUrl: string): { data: T | null; error: unknown | null } {
-  const API_URL = process.env.NEXT_PUBLIC_API_URL;
-  // data, error 초기값은 비어있음, loading 초기값은 로딩 중인 상태
-  const [data, setData] = useState<T | null>(null);
-  const [error, setError] = useState<unknown | null>(null);
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-  // apiUrl 또는 API_URL이 변경될 경우 실행
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const url = new URL(apiUrl, API_URL);
-        const response = await fetch(url);
-        const result = await response.json();
+async function fetchData(apiUrl: string) {
+  const url = new URL(apiUrl, API_URL);
+  try {
+    const response = await fetch(url);
+    const result = await response.json();
 
-        const responseError = result?.error ?? 'Fetch response failed';
+    const responseError = result?.error ?? 'Fetch response failed';
 
-        if (!response.ok) {
-          throw new Error(`User response error: ${responseError}`);
-        }
+    if (!response.ok) {
+      throw new Error(`User response error: ${responseError}`);
+    }
 
-        setData(result);
-      } catch (errorData) {
-        setError(errorData);
-      }
-    };
+    return result;
+  } catch (errorData) {
+    throw new Error(`Fetch error: ${errorData}`);
+  }
+}
 
-    // 함수 호출
-    fetchData();
-  }, [apiUrl, API_URL]);
+// react-query 적용
+export default function useFetch<T>(
+  apiUrl: string,
+  key: string[]
+): { data: T | undefined; error: unknown | null; isLoading: boolean; isError: boolean } {
+  const { data, error, isLoading, isError } = useQuery<T>(key, () => fetchData(apiUrl));
 
-  // 객체 반환
-  return { data, error };
+  return { data, error, isLoading, isError };
 }

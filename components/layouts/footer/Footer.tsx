@@ -21,7 +21,7 @@ const footerClasses = classNames(
 const copyrightClasses = classNames(styles.copyright);
 const officialLinkClasses = classNames(styles['official-link'], 'flex-row');
 const socialLinkClasses = classNames(styles['social-link'], 'flex-row');
-const socialLinkImgClasses = classNames(styles['social-link-icon'], 'position-relative');
+const socialLinkImgClasses = classNames(styles['social-link-icon'], 'position-relative', 'overflow-hidden');
 
 function Footer() {
   const socialLinks = [
@@ -42,7 +42,13 @@ function Footer() {
         {socialLinks.map((link) => (
           <Link href={link.href} key={link.id} target="_blank">
             <div className={socialLinkImgClasses}>
-              <Image src={link.src} alt={link.id} fill />
+              <Image
+                src={link.src}
+                alt={link.id}
+                width={80}
+                height={80}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
             </div>
           </Link>
         ))}

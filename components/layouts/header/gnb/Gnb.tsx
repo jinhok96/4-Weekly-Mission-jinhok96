@@ -3,15 +3,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { ROUTE_PATHS } from 'constants/constants';
-import scrollToTop from 'utils/scrollToTop';
-
 import styles from '@/components/layouts/header/gnb/Gnb.module.css';
 import UserProfile from '@/components/layouts/header/gnb/UserProfile';
+import { ROUTE_PATHS } from '@/constants/constants';
 import logoSvgUrl from '@/public/images/logo.svg';
+import scrollToTop from '@/utils/scrollToTop';
 
 const containerClasses = classNames('flex-row', 'align-center', 'justify-space-between');
-const logoClasses = classNames(styles['gnb-logo'], 'position-relative');
+const logoClasses = classNames(styles['gnb-logo'], 'position-relative', 'overflow-hidden');
 
 // 글로벌 네비게이션 바
 function Gnb() {
@@ -29,12 +28,18 @@ function Gnb() {
   const navDummyClasses = classNames({ [styles['nav-dummy']]: pathname !== ROUTE_PATHS.folder });
 
   return (
-    <div>
+    <>
       <nav className={navClasses}>
         <div className={containerClasses}>
           <Link href={ROUTE_PATHS.home} onClick={scrollToTop}>
             <div className={logoClasses}>
-              <Image src={logoSvgUrl} alt="logo" fill />
+              <Image
+                src={logoSvgUrl}
+                alt="logo"
+                width={532}
+                height={96}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
             </div>
           </Link>
           <UserProfile />
@@ -42,7 +47,7 @@ function Gnb() {
       </nav>
       {/* 더미 요소로 공간 차지 */}
       <div className={navDummyClasses} />
-    </div>
+    </>
   );
 }
 

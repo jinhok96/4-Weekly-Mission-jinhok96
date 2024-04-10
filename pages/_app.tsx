@@ -6,8 +6,11 @@ import '@/styles/utility.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import ReactModal from 'react-modal';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 import ModalProvider from '@/contexts/ModalProvider';
+
+const queryClient = new QueryClient();
 
 export default function App({ Component, pageProps }: AppProps) {
   // 모달이 활성화될 때 애플리케이션의 "#modal-root"를 제외한 나머지 부분에 대한 접근을 차단
@@ -20,9 +23,11 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="description" content="Linkbrary" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <ModalProvider>
-        <Component {...pageProps} />
-      </ModalProvider>
+      <QueryClientProvider client={queryClient}>
+        <ModalProvider>
+          <Component {...pageProps} />
+        </ModalProvider>
+      </QueryClientProvider>
     </>
   );
 }

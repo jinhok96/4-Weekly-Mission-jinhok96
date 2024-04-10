@@ -156,3 +156,7 @@
 .grid {
   display: grid;
 }
+
+.overflow-hidden {
+  overflow: hidden;
+}
