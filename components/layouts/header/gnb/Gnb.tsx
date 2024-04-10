@@ -2,12 +2,10 @@ import classNames from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Suspense } from 'react';
 
-import { LOADING_MESSAGE, ROUTE_PATHS } from 'constants/constants';
+import { ROUTE_PATHS } from 'constants/constants';
 import scrollToTop from 'utils/scrollToTop';
 
-import ErrorMessage from '@/components/common/ErrorMessage';
 import styles from '@/components/layouts/header/gnb/Gnb.module.css';
 import UserProfile from '@/components/layouts/header/gnb/UserProfile';
 import logoSvgUrl from '@/public/images/logo.svg';
@@ -39,9 +37,7 @@ function Gnb() {
               <Image src={logoSvgUrl} alt="logo" fill />
             </div>
           </Link>
-          <Suspense fallback={<ErrorMessage message={LOADING_MESSAGE} />}>
-            <UserProfile />
-          </Suspense>
+          <UserProfile />
         </div>
       </nav>
       {/* 더미 요소로 공간 차지 */}

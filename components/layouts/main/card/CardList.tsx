@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import { Suspense } from 'react';
 
 import useFetch from 'hooks/useFetch';
 
@@ -43,13 +42,11 @@ function CardList({ folderId = 0, filter = '' }: CardListProps) {
   );
 
   return (
-    <Suspense fallback={<p className={noCardListTextBoxClasses}>저장된 링크가 없습니다</p>}>
-      <div className={cardListClasses}>
-        {filteredLinkList.map((link) => (
-          <Card key={link.id} linkData={link} />
-        ))}
-      </div>
-    </Suspense>
+    <div className={cardListClasses}>
+      {filteredLinkList.map((link) => (
+        <Card key={link.id} linkData={link} />
+      ))}
+    </div>
   );
 }
 
