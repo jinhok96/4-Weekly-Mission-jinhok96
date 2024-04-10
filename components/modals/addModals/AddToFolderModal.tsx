@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { FOLDERS_API_URL, FolderApiResponse, FolderData } from '@/apis/api';
 import AddFolderList from '@/components/common/AddFolderList';
 import ErrorMessage from '@/components/common/ErrorMessage';
+import LoadingMessage from '@/components/common/LoadingMessage';
 import ModalButton from '@/components/common/buttons/ModalButton';
 import ModalContainer from '@/components/modals/ModalContainer';
 import styles from '@/components/modals/addModals/AddToFolderModal.module.css';
@@ -31,8 +32,16 @@ interface AddfolderModalProps {
 
 function AddToFolderModal({ link, onSubmit, onClose }: AddfolderModalProps) {
   const foldersUrl = FOLDERS_API_URL;
-  const { data, error, isError } = useFetch<FolderApiResponse>(foldersUrl, 'addToFolderModal');
+  const { data, error, isError, isLoading } = useFetch<FolderApiResponse>(foldersUrl, ['addToFolderModal', link.url]);
   const [selectedFolder, setSelectedFolder] = useState<FolderData | null>(null);
+
+  if (isLoading) {
+    return (
+      <ModalContainer onClose={onClose}>
+        <LoadingMessage />
+      </ModalContainer>
+    );
+  }
 
   if (isError) {
     return (

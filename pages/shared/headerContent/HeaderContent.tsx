@@ -17,14 +17,14 @@ const folderNameClasses = classNames(styles['shared-folder-name'], 'text-center'
 function HeaderContent() {
   // 폴더 정보 가져오기
   const url = SAMPLE_FOLDER_API_URL;
-  const { data, error, isError } = useFetch<SampleFolderApiResponse>(url, 'headerContent');
+  const { data, error, isError } = useFetch<SampleFolderApiResponse>(url, ['headerContent', url]);
 
   if (!data?.folder) return <ErrorMessage message="Empty Folder" />;
   if (isError) return <ErrorMessage message={`${error}`} />;
 
-  const ownerProfileImg = data?.folder.owner.profileImageSource || '';
+  const ownerProfileImg = data?.folder.owner.profileImageSource ?? '';
   const ownerName = data?.folder.owner.name ? `@${data.folder.owner.name}` : '';
-  const folderName = data?.folder.name || '';
+  const folderName = data?.folder.name ?? '';
 
   return (
     <div className={contentClasses}>

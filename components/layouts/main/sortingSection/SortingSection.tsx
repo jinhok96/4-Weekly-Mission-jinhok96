@@ -54,7 +54,7 @@ function SortingSection({ selectedFolder, setSelectedFolder }: SortingSectionPro
   const { openModal } = useModal();
 
   const url = FOLDERS_API_URL;
-  const { data, error, isError } = useFetch<FolderApiResponse>(url, ['sortingSection']);
+  const { data, error, isError } = useFetch<FolderApiResponse>(url, ['sortingSection', url]);
 
   // {id, created_at, name, user_id, favorite, link: {count}}
   const folderList = [ALL_DEFAULT_DATA, ...(data?.data ?? [])];

@@ -13,7 +13,7 @@ const profileEmailClasses = classNames(styles['profile-email'], 'hidden-block-mo
 
 export default function UserProfile() {
   const url = USER_API_URL;
-  const { data, isError } = useFetch<UserIdApiResponse>(url, ['userProfile']);
+  const { data, isError } = useFetch<UserIdApiResponse>(url, ['userProfile', url]);
 
   // data가 없을 경우 얼리 리턴
   if (!data?.data) return <LoginButton />;
@@ -24,7 +24,7 @@ export default function UserProfile() {
   // data를 가공하여 userInfo에 저장
   const userInfo = data?.data && data.data.length > 0 ? data.data[0] : null;
 
-  const userProfileImg = userInfo?.profileImageSource || defaultProfileImg;
+  const userProfileImg = userInfo?.profileImageSource ?? defaultProfileImg;
   const userEmail = userInfo?.email ?? '';
 
   return (

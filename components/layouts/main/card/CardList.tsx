@@ -21,7 +21,7 @@ interface CardListProps {
 
 function CardList({ folderId = 0, filter = '' }: CardListProps) {
   const url = folderId === 0 ? LINKS_API_URL : LINKS_FOLDER_ID_API_URL(folderId);
-  const { data, isError } = useFetch<LinksApiResponse>(url, ['cardList', `${folderId}`]);
+  const { data, isError } = useFetch<LinksApiResponse>(url, ['cardList', url]);
 
   if (!data?.data) return <p className={noCardListTextBoxClasses}>저장된 링크가 없습니다</p>;
   if (data.data.length === 0) return <p className={noCardListTextBoxClasses}>저장된 링크가 없습니다</p>;
