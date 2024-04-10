@@ -3,6 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
+import AsyncBoundary from '@/components/common/AsyncBoundary';
+import LoginButton from '@/components/common/buttons/LoginButton';
 import styles from '@/components/layouts/header/gnb/Gnb.module.css';
 import UserProfile from '@/components/layouts/header/gnb/UserProfile';
 import { ROUTE_PATHS } from '@/constants/constants';
@@ -42,7 +44,9 @@ function Gnb() {
               />
             </div>
           </Link>
-          <UserProfile />
+          <AsyncBoundary errorFallback={<LoginButton />} loadingFallback={<LoginButton />}>
+            <UserProfile />
+          </AsyncBoundary>
         </div>
       </nav>
       {/* 더미 요소로 공간 차지 */}

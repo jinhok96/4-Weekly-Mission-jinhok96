@@ -6,7 +6,6 @@ import useFetch from 'hooks/useFetch';
 import useModal from 'hooks/useModal';
 
 import { FOLDERS_API_URL, FolderApiResponse } from '@/apis/api';
-import ErrorMessage from '@/components/common/ErrorMessage';
 import AddFolderButton from '@/components/common/buttons/AddFolderButton';
 import OptionButton from '@/components/common/buttons/OptionButton';
 import SortingButton from '@/components/common/buttons/SortingButton';
@@ -30,6 +29,8 @@ const titleClasses = classNames(styles.title);
 const optionListClasses = classNames(styles['option-list'], 'flex-row', 'align-center');
 const selectedButtonClasses = classNames('background-primary', 'text-color-white');
 
+const url = FOLDERS_API_URL;
+
 // 옵션 리스트
 type OptionType = 'share' | 'editFolderName' | 'deleteFolder';
 
@@ -50,11 +51,10 @@ interface SortingSectionProps {
   setSelectedFolder: React.Dispatch<React.SetStateAction<{ id: number; name: string }>>;
 }
 
-function SortingSection({ selectedFolder, setSelectedFolder }: SortingSectionProps) {
+export default function SortingSection({ selectedFolder, setSelectedFolder }: SortingSectionProps) {
   const { openModal } = useModal();
 
-  const url = FOLDERS_API_URL;
-  const { data, error, isError } = useFetch<FolderApiResponse>(url, ['sortingSection', url]);
+  const { data } = useFetch<FolderApiResponse>(url, ['sortingSection', url]);
 
   // {id, created_at, name, user_id, favorite, link: {count}}
   const folderList = [ALL_DEFAULT_DATA, ...(data?.data ?? [])];
@@ -108,7 +108,6 @@ function SortingSection({ selectedFolder, setSelectedFolder }: SortingSectionPro
               {folder.name}
             </SortingButton>
           ))}
-          {isError && <ErrorMessage message={String(error)} />}
         </div>
         <AddFolderButton className={addFolderButtonClasses} onClick={handleAddFolderButtonClick} />
       </div>
@@ -132,5 +131,3 @@ function SortingSection({ selectedFolder, setSelectedFolder }: SortingSectionPro
     </div>
   );
 }
-
-export default SortingSection;

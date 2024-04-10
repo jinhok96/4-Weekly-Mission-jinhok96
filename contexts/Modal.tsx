@@ -4,6 +4,8 @@ import { useContext } from 'react';
 
 import { ModalDispatchContext, ModalStateContext } from 'contexts/ModalContext';
 
+import AsyncBoundary from '@/components/common/AsyncBoundary';
+
 // 전체 모달 리스트
 const modalList = {
   AddForderModal: loadable(() => import('@/components/modals/addModals/AddFolderModal')),
@@ -40,7 +42,11 @@ function Modal() {
     onClose();
   };
 
-  return <ModalComponent {...restPropList} onSubmit={handleSubmit} onClose={onClose} />;
+  return (
+    <AsyncBoundary>
+      <ModalComponent {...restPropList} onSubmit={handleSubmit} onClose={onClose} />
+    </AsyncBoundary>
+  );
 }
 
 export { modalList, Modal };

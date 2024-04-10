@@ -13,7 +13,7 @@ const inputResetButtonClasses = classNames(styles['input-reset-button'], 'positi
 const resetIconClasses = classNames('width-full', 'height-full');
 
 interface SearchBarProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  onInputReset: () => void;
+  onInputReset?: () => void;
 }
 
 function SearchBar({ value, onChange, onInputReset }: SearchBarProps) {

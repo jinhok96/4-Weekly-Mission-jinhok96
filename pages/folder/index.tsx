@@ -1,12 +1,9 @@
 import classNames from 'classnames';
 import React, { useCallback, useEffect, useState } from 'react';
 
-import { ALL_DEFAULT_DATA } from 'constants/constants';
-import { modalList } from 'contexts/Modal';
-import useIntersectionObserver from 'hooks/useIntersectionObserver';
-import useModal from 'hooks/useModal';
-import selectParticle from 'utils/selectPostposition';
-
+import AsyncBoundary from '@/components/common/AsyncBoundary';
+import ErrorMessage from '@/components/common/ErrorMessage';
+import LoadingMessage from '@/components/common/LoadingMessage';
 import FloatingAddFolderButton from '@/components/common/buttons/FloatingAddFolderButton';
 import Footer from '@/components/layouts/footer/Footer';
 import Header from '@/components/layouts/header/Header';
@@ -15,8 +12,13 @@ import Main from '@/components/layouts/main/Main';
 import CardList from '@/components/layouts/main/card/CardList';
 import SearchBar from '@/components/layouts/main/searchBar/SearchBar';
 import SortingSection from '@/components/layouts/main/sortingSection/SortingSection';
+import { ALL_DEFAULT_DATA } from '@/constants/constants';
+import { modalList } from '@/contexts/Modal';
+import useIntersectionObserver from '@/hooks/useIntersectionObserver';
+import useModal from '@/hooks/useModal';
 import HeaderContent from '@/pages/folder/headerContent/HeaderContent';
 import styles from '@/pages/folder/index.module.css';
+import selectParticle from '@/utils/selectPostposition';
 
 const searchResultTitleClasses = classNames(styles['search-result-title'], 'text-color-gray60');
 const floatingAddFolderButtonClasses = classNames(
@@ -98,8 +100,15 @@ function Folder() {
               {selectParticle(inputState)} 검색한 결과입니다.
             </p>
           )}
-          <SortingSection selectedFolder={selectedFolder} setSelectedFolder={setSelectedFolder} />
-          <CardList folderId={selectedFolder.id} filter={inputState} />
+          <AsyncBoundary>
+            <SortingSection selectedFolder={selectedFolder} setSelectedFolder={setSelectedFolder} />
+          </AsyncBoundary>
+          <AsyncBoundary
+            errorFallback={<ErrorMessage message="링크를 가져오지 못했습니다." />}
+            loadingFallback={<LoadingMessage />}
+          >
+            <CardList folderId={selectedFolder.id} filter={inputState} />
+          </AsyncBoundary>
           <FloatingAddFolderButton className={floatingAddFolderButtonClasses} onClick={handleAddFolderButtonClick} />
         </Main>
       </div>

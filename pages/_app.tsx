@@ -3,10 +3,10 @@ import '@/styles/reset.css';
 import '@/styles/globals.css';
 import '@/styles/colors.css';
 import '@/styles/utility.css';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import ReactModal from 'react-modal';
-import { QueryClient, QueryClientProvider } from 'react-query';
 
 import ModalProvider from '@/contexts/ModalProvider';
 

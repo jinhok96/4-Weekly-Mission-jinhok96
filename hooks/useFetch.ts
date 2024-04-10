@@ -1,31 +1,32 @@
-import { useQuery } from 'react-query';
+import { QueryKey, useSuspenseQuery } from '@tanstack/react-query';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-async function fetchData(apiUrl: string) {
+async function fetchData<T>(apiUrl: string): Promise<T> {
   const url = new URL(apiUrl, API_URL);
   try {
     const response = await fetch(url);
-    const result = await response.json();
-
-    const responseError = result?.error ?? 'Fetch response failed';
+    console.log('response.json()', response);
 
     if (!response.ok) {
-      throw new Error(`User response error: ${responseError}`);
+      throw new Error(`Fetch response error: ${response.statusText}`);
     }
 
-    return result;
-  } catch (errorData) {
-    throw new Error(`Fetch error: ${errorData}`);
+    return response.json() as T;
+  } catch (error) {
+    throw new Error(`Fetch error: ${error}`);
   }
 }
 
 // react-query 적용
 export default function useFetch<T>(
   apiUrl: string,
-  key: string[]
+  key: QueryKey
 ): { data: T | undefined; error: unknown | null; isLoading: boolean; isError: boolean } {
-  const { data, error, isLoading, isError } = useQuery<T>(key, () => fetchData(apiUrl));
+  const { data, error, isLoading, isError } = useSuspenseQuery<T, Error>({
+    queryKey: key,
+    queryFn: () => fetchData<T>(apiUrl),
+  });
 
   return { data, error, isLoading, isError };
 }

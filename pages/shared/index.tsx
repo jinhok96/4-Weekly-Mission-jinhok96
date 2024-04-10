@@ -1,5 +1,8 @@
 import classNames from 'classnames';
 
+import AsyncBoundary from '@/components/common/AsyncBoundary';
+import ErrorMessage from '@/components/common/ErrorMessage';
+import LoadingMessage from '@/components/common/LoadingMessage';
 import Footer from '@/components/layouts/footer/Footer';
 import Header from '@/components/layouts/header/Header';
 import Main from '@/components/layouts/main/Main';
@@ -16,7 +19,9 @@ function Shared() {
     <div>
       <div className={containerClasses}>
         <Header>
-          <HeaderContent />
+          <AsyncBoundary errorFallback={<ErrorMessage message="Error" />} loadingFallback={<LoadingMessage />}>
+            <HeaderContent />
+          </AsyncBoundary>
         </Header>
         <Main>
           <SearchBar />
