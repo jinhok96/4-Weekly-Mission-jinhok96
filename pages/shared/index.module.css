@@ -1,0 +1,18 @@
+.search-result-title {
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: -0.02rem;
+  margin-bottom: 3.2rem;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .search-result-title {
+    font-size: 3.2rem;
+    margin-bottom: 4rem;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1200px) {
+}
