@@ -7,10 +7,10 @@ interface AsyncBoundaryProps {
   children: React.ReactNode;
 }
 
-export default function AsyncBoundary({ errorFallback, loadingFallback, children }: AsyncBoundaryProps) {
+export default function AsyncBoundary({ errorFallback = null, loadingFallback = null, children }: AsyncBoundaryProps) {
   return (
-    <ErrorBoundary fallback={errorFallback || <div />}>
-      <Suspense fallback={loadingFallback || <div />}>{children}</Suspense>
+    <ErrorBoundary fallback={errorFallback}>
+      <Suspense fallback={loadingFallback}>{children}</Suspense>
     </ErrorBoundary>
   );
 }
