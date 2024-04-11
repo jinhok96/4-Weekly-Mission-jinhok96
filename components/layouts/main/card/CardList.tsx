@@ -21,11 +21,10 @@ interface CardListProps {
 
 function CardList({ folderId = 0, filter = '' }: CardListProps) {
   const url = folderId === 0 ? LINKS_API_URL : LINKS_FOLDER_ID_API_URL(folderId);
-  const { data, isError } = useFetch<LinksApiResponse>(url, ['cardList', url]);
+  const { data } = useFetch<LinksApiResponse>(url, ['cardList', url]);
 
   if (!data?.data) return <p className={noCardListTextBoxClasses}>저장된 링크가 없습니다</p>;
   if (data.data.length === 0) return <p className={noCardListTextBoxClasses}>저장된 링크가 없습니다</p>;
-  if (isError) return <p className={noCardListTextBoxClasses}>저장된 링크가 없습니다</p>;
 
   // {created_at, description, folder_id, id, image_source, title, updated_at, url}
   const linkList = data.data;
