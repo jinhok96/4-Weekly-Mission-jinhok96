@@ -26,7 +26,7 @@ const topElementContainerClasses = classNames(
 const timeAgoClasses = classNames(styles['time-ago'], 'text-color-text');
 const cardNameClasses = classNames(styles['card-name'], 'multiline-ellipsis');
 const createDateClasses = classNames(styles['create-date']);
-const selectMenuClasses = classNames(styles['select-menu'], 'position-absolute', 'z-top-force');
+const selectMenuClasses = classNames(styles['select-menu'], 'position-absolute', 'z-top');
 
 interface CardProps {
   linkData: LinkData;

@@ -24,7 +24,7 @@ function Gnb() {
     styles.gnb,
     { 'position-fixed': pathname !== ROUTE_PATHS.folder },
     'margin-auto',
-    'z-top'
+    'z-top-force'
   );
   // gnb의 position-fixed에 대한 더미
   const navDummyClasses = classNames({ [styles['nav-dummy']]: pathname !== ROUTE_PATHS.folder });
