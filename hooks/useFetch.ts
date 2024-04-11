@@ -6,7 +6,6 @@ async function fetchData<T>(apiUrl: string): Promise<T> {
   const url = new URL(apiUrl, API_URL);
   try {
     const response = await fetch(url);
-    console.log('response.json()', response);
 
     if (!response.ok) {
       throw new Error(`Fetch response error: ${response.statusText}`);
