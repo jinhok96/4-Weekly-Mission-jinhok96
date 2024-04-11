@@ -85,7 +85,7 @@ function Folder() {
   }, [inputState]);
 
   return (
-    <div>
+    <AsyncBoundary>
       <div className={containerClasses}>
         <div ref={headerObservationTargetRef}>
           <Header>
@@ -120,7 +120,7 @@ function Folder() {
       <div ref={footerObservationTargetRef}>
         <Footer />
       </div>
-    </div>
+    </AsyncBoundary>
   );
 }
 
