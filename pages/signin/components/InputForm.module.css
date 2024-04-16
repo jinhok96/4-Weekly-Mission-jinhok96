@@ -1,0 +1,22 @@
+.inputLabel {
+  display: block;
+  color: var(--black, hsl(0, 0%, 0%));
+  font-size: 1.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.eyeButton {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 1.5rem;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+}
+
+.error {
+  color: var(--Linkbrary-red, #ff5b56);
+  font-size: 1.4rem;
+  margin-top: 0.6rem;
+}

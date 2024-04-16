@@ -14,6 +14,12 @@ const linkFolderPageButtonClasses = classNames(styles.button, 'background-primar
 export default function Home() {
   return (
     <main className={containerClasses}>
+      <Link href={ROUTE_PATHS.signin} onClick={scrollToTop}>
+        <Button className={linkSharedPageButtonClasses}>SignInPage</Button>
+      </Link>
+      <Link href={ROUTE_PATHS.signup} onClick={scrollToTop}>
+        <Button className={linkSharedPageButtonClasses}>SignUpPage</Button>
+      </Link>
       <Link href={ROUTE_PATHS.shared} onClick={scrollToTop}>
         <Button className={linkSharedPageButtonClasses}>SharedPage</Button>
       </Link>

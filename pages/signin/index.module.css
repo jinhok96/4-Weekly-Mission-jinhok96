@@ -1,0 +1,80 @@
+.container {
+  background: var(--Linkbrary-bg, #f0f6ff);
+  padding: 12rem 3.2rem;
+  height: 100vh;
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+  margin-bottom: 3rem;
+}
+
+.headerLogo {
+  width: 21rem;
+  height: 3.8rem;
+}
+
+.headerDescription {
+  color: var(--black, #000);
+  text-align: center;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
+.headerDescriptionLink {
+  position: relative;
+  color: var(--Linkbrary-primary-color, #6d6afe);
+  text-underline-offset: 0.4rem;
+  bottom: 0.2rem;
+  margin-left: 0.8rem;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  margin-bottom: 3rem;
+}
+
+.loginButton {
+  width: 100%;
+  font-size: 1.8rem;
+  padding: 1.6rem 2rem;
+  border-radius: 0.8rem;
+  margin-bottom: 3.2rem;
+}
+
+.footerClasses {
+  width: 100%;
+  padding: 1.2rem 2.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--Linkbrary-gray20, #ccd5e3);
+  background: var(--Linkbrary-gray10, #e7effb);
+  color: var(--Linkbrary-gray100, #373740);
+  font-size: 1.4rem;
+}
+
+.socialLoginContainer {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.socialLoginImg {
+  width: 4.2rem;
+  height: 4.2rem;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+}
+
+/* Desktop */
+@media screen and (min-width: 1200px) {
+}

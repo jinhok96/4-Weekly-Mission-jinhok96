@@ -1,0 +1,27 @@
+.container {
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  padding: 1.8rem 1.5rem;
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--Linkbrary-gray20, #ccd5e3);
+  outline: none;
+  background: var(--Linkbrary-white, #fff);
+  color: var(--Linkbrary-gray100, #373740);
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
+.input::placeholder {
+  color: var(--Linkbrary-gray60, #9fa6b2);
+}
+
+.input:focus {
+  border: 0.1rem solid var(--Linkbrary-primary-color, #6d6afe);
+}
+
+.invalid {
+  border: 0.1rem solid var(--Linkbrary-red, #ff5b56);
+}

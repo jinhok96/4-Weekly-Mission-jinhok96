@@ -2,6 +2,8 @@ export const ROUTE_PATHS = {
   home: '/',
   folder: '/folder',
   shared: '/shared',
+  signin: '/signin',
+  signup: '/signup',
 };
 
 export const LOADING_MESSAGE = 'Loading...';

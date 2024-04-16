@@ -96,3 +96,16 @@ export function LINKS_FOLDER_ID_API_URL(folderId: number) {
   const url = `users/1/links?folderId=${folderId}`;
   return url;
 }
+
+/**
+ * /api/sign-in
+ */
+export const SIGN_IN_API_URL = 'sign-in';
+
+export type SignInDataResponse = {
+  error: {
+    name: string;
+    message: string;
+    status: number;
+  };
+};
